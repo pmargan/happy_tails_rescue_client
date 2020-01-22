@@ -7,6 +7,17 @@ import {
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import {
+  About,
+  Adopt,
+  Contact,
+  Events,
+  Foster,
+  Help,
+  Home,
+  Programs,
+  Vets
+} from './components/pages'
 
 import './stylesheets/App.scss'
 
@@ -18,10 +29,31 @@ function App() {
 
         <Switch>
           <Route path="/">
+            <Home />
           </Route>
-          <Route path="/">
+          <Route path="/about">
+            <About />
           </Route>
-          <Route path="/">
+          <Route path="/programs">
+            <Programs />
+          </Route>
+          <Route path="/adopt">
+            <Adopt />
+          </Route>
+          <Route path="/foster">
+            <Foster />
+          </Route>
+          <Route path="/help">
+            <Help />
+          </Route>
+          <Route path="/vets">
+            <Vets />
+          </Route>
+          <Route path="/events">
+            <Events />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
         </Switch>
 

@@ -103,6 +103,27 @@
       display: inline-flex;
       flex-direction: column;
       justify-content: space-between;
+
+      div {
+        position: relative;
+        transition: all 0.2s;
+      }
+
+      &.close {
+        div:nth-child(1) {
+          transform: rotate(45deg);
+          top: 10px;
+        }
+
+        div:nth-child(2) {
+          opacity: 0;
+        }
+
+        div:nth-child(3) {
+          transform: rotate(-45deg);
+          top: -10px;
+        }
+      }
     }
   }
 }

@@ -38,7 +38,7 @@ function Header() {
           <Link to='/contact'>Contact</Link>
         </li>
       </ul>
-      <div className='hamburger' onClick={() => setHamburger(!hamburger)}>
+      <div className={'hamburger' + (hamburger ? ' close' : '')} onClick={() => setHamburger(!hamburger)}>
         <div />
         <div />
         <div />
