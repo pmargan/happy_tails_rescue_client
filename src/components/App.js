@@ -17,7 +17,8 @@ import {
   Help,
   Home,
   Programs,
-  Vets
+  Vets,
+  Animal
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -56,6 +57,9 @@ function App() {
             </Route>
             <Route path="/contact">
               <Contact />
+            </Route>
+            <Route path="/animal/:id">
+              <Animal />
             </Route>
           </Switch>
         </Main>
