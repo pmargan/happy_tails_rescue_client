@@ -11,31 +11,31 @@ function Header() {
     <nav className='Header'>
       <ul className={'navList' + (hamburger ? ' show' : '')}>
         <li>
-          <Link to='/'>Home</Link>
+          <Link onClick={() => setHamburger(false)} to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/about'>About Us</Link>
+          <Link onClick={() => setHamburger(false)} to='/about'>About Us</Link>
         </li>
         <li>
-          <Link to='/programs'>Happy Tails Programs</Link>
+          <Link onClick={() => setHamburger(false)} to='/programs'>Happy Tails Programs</Link>
         </li>
         <li>
-          <Link to='/adopt'>Adopt</Link>
+          <Link onClick={() => setHamburger(false)} to='/adopt'>Adopt</Link>
         </li>
         <li>
-          <Link to='/foster'>Foster</Link>
+          <Link onClick={() => setHamburger(false)} to='/foster'>Foster</Link>
         </li>
         <li>
-          <Link to='/help'>Help Us</Link>
+          <Link onClick={() => setHamburger(false)} to='/help'>Help Us</Link>
         </li>
         <li>
-          <Link to='/vets'>Our Vets</Link>
+          <Link onClick={() => setHamburger(false)} to='/vets'>Our Vets</Link>
         </li>
         <li>
-          <Link to='/events'>Events</Link>
+          <Link onClick={() => setHamburger(false)} to='/events'>Events</Link>
         </li>
         <li>
-          <Link to='/contact'>Contact</Link>
+          <Link onClick={() => setHamburger(false)} to='/contact'>Contact</Link>
         </li>
       </ul>
       <div className={'hamburger' + (hamburger ? ' close' : '')} onClick={() => setHamburger(!hamburger)}>

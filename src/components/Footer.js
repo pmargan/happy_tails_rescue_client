@@ -1,9 +1,12 @@
 import React from 'react'
 
+import '../stylesheets/Footer.scss'
+
 function Footer() {
   return (
-    <div className="Footer">
-    </div>
+    <footer>
+      
+    </footer>
   )
 }
 
