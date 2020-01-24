@@ -17,20 +17,32 @@ function Home() {
 
   return (
     <>
-      <Form onSubmit={(data) => {console.log(data)}}>
+      <Form className='myForm' onSubmit={(data) => {console.log(data)}}>
         <div>
-          <label>Hello:</label>
-          <input type='text' name='Hello' />
-          <label>World:</label>
-          <input type='text' name='World' />
+          <div>
+            <label>Hello:</label>
+            <input type='text' name='Hello' />
+          </div>
+          <div>
+            <label>World:</label>
+            <input type='text' name='World' />
+          </div>
+          <button>Next</button>
         </div>
         <div>
-          <label>Does:</label>
-          <input type='text' name='Does' />
-          <label>This:</label>
-          <input type='text' name='This' />
-          <label>Work:</label>
-          <input type='text' name='Work' />
+          <div>
+            <label>Does:</label>
+            <input type='text' name='Does' />
+          </div>
+          <div>
+            <label>This:</label>
+            <input type='text' name='This' />
+          </div>
+          <div>
+            <label>Work:</label>
+            <input type='text' name='Work' />
+          </div>
+          <button>Submit</button>
         </div>
       </Form>
       <div className='animals'>

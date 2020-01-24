@@ -53,3 +53,21 @@
     grid-template: repeat(3, 1fr) / repeat(2, 1fr);
   }
 }
+
+.myForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > div {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    button {
+      width: 50px;
+    }
+  }
+}
