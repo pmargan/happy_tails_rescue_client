@@ -12,7 +12,6 @@ import {
   About,
   Adopt,
   Contact,
-  Events,
   Foster,
   Help,
   Home,
