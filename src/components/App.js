@@ -12,7 +12,6 @@ import {
   About,
   Adopt,
   Contact,
-  Events,
   Foster,
   Help,
   Home,
@@ -51,9 +50,6 @@ function App() {
             </Route>
             <Route path="/vets">
               <Vets />
-            </Route>
-            <Route path="/events">
-              <Events />
             </Route>
             <Route path="/contact">
               <Contact />

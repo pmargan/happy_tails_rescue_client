@@ -1,7 +1,6 @@
 import About from './About'
 import Adopt from './Adopt'
 import Contact from './Contact'
-import Events from './Events'
 import Foster from './Foster'
 import Help from './Help'
 import Home from './Home'
@@ -13,7 +12,6 @@ export {
   About,
   Adopt,
   Contact,
-  Events,
   Foster,
   Help,
   Home,

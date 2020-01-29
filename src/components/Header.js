@@ -32,9 +32,6 @@ function Header() {
           <Link onClick={() => setHamburger(false)} to='/vets'>Our Vets</Link>
         </li>
         <li>
-          <Link onClick={() => setHamburger(false)} to='/events'>Events</Link>
-        </li>
-        <li>
           <Link onClick={() => setHamburger(false)} to='/contact'>Contact</Link>
         </li>
       </ul>
