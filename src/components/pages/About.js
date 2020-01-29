@@ -8,7 +8,6 @@ function About() {
   useEffect(() => {
     async function getData() {
       axios.get('http://localhost:3001/about')
-      // api.get(`/about`)
         .then(result => {
           setDynamicText(result.data.value)
         })

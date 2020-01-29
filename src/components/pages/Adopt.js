@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 
 function Adopt() {
 
@@ -8,7 +9,13 @@ function Adopt() {
   const [pageNum, setPageNum] = useState(0)
 
   useEffect(() => {
-    // pull animals from backend
+    async function getData() {
+      axios.get('http://localhost:3001/all-animals')
+        .then(result => {
+          setAnimals(result.data.value)
+        })
+    }
+    getData()
   }, [])
 
   return (
