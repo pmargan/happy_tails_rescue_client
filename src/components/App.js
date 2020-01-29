@@ -51,9 +51,6 @@ function App() {
             <Route path="/vets">
               <Vets />
             </Route>
-            <Route path="/events">
-              <Events />
-            </Route>
             <Route path="/contact">
               <Contact />
             </Route>
