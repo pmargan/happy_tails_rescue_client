@@ -20,6 +20,7 @@ function Contact() {
       <h1>Contact Us</h1>
       {dynamicText.map(text => (
         <>
+          <h2>{text.title}</h2>
           <p>{text.value}</p>
           <br/>
         </>
