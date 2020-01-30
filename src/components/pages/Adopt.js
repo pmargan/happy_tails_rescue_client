@@ -10,27 +10,30 @@ function Adopt() {
 
   useEffect(() => {
     async function getData() {
-      axios.get('http://localhost:3001/all-animals')
+      axios.get('http://localhost:3001/animals/all-animals')
         .then(result => {
+          console.log(result)
           setAnimals(result.data.value)
         })
     }
     getData()
   }, [])
 
-  return (
+
+  return animals ? (
     <>
-      <div className='animals'>
-          {animals.slice(pageNum*aPerPage, pageNum*aPerPage+aPerPage).map(animal => (
-            <div key={animal.id} >
-              <img src={animal.image} alt='animal' />
-              <h3>{animal.name || 'Name'}</h3>
-              <p>{animal.breed || 'Breed'}</p>
-            </div>
-          ))}
-        </div>
+    <div className="Animals">
+      <h1>All Available Animals</h1>
+      {animals.slice(pageNum*aPerPage, pageNum*aPerPage+aPerPage).map(animal => (
+        <>
+          <p>{animal.value}</p>
+          <br/>
+        </>
+      ))}
+    </div>
         <div className='changePage'>
           <div>
+            <>
             <button
               onClick={() => setPageNum(pageNum - 1)}
               disabled={pageNum === 0}
@@ -44,10 +47,47 @@ function Adopt() {
             >
               {'>'}
             </button>
+            </>
           </div>
         </div>
-    </>
+        </>
+  ) : (
+    <p>There is no available Animals</p>
   )
+  
+
+
+
+  // return (
+  //   <>
+  //     <div className='animals'>
+  //         {animals.slice(pageNum*aPerPage, pageNum*aPerPage+aPerPage).map(animal => (
+  //           <div key={animal.id} >
+  //             <img src={animal.image} alt='animal' />
+  //             <h3>{animal.name || 'Name'}</h3>
+  //             <p>{animal.breed || 'Breed'}</p>
+  //           </div>
+  //         ))}
+  //       </div>
+  //       <div className='changePage'>
+  //         <div>
+  //           <button
+  //             onClick={() => setPageNum(pageNum - 1)}
+  //             disabled={pageNum === 0}
+  //           >
+  //             {'<'}
+  //           </button>
+  //           <p>{pageNum + 1}</p>
+  //           <button
+  //             onClick={() => setPageNum(pageNum + 1)}
+  //             disabled={(pageNum + 1) * aPerPage >= animals.length}
+  //           >
+  //             {'>'}
+  //           </button>
+  //         </div>
+  //       </div>
+  //   </>
+  // )
 }
 
 export default Adopt
