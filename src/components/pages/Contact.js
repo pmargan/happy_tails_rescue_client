@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 function Contact() {
-  const [dynamicText, setDynamicText] = useState([null])
+  const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
     async function getData() {
@@ -17,8 +17,13 @@ function Contact() {
   
   return dynamicText ? (
     <div className="Contact">
-      <h1>Contact</h1>
-      <p>{dynamicText || 'Example Text'}</p>
+      <h1>Contact Us</h1>
+      {dynamicText.map(text => (
+        <>
+          <p>{text.value}</p>
+          <br/>
+        </>
+      ))}
     </div>
   ) : (
     <p>nothing here yet</p>

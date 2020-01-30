@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 function About() {
-  const [dynamicText, setDynamicText] = useState([null])
+  const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
     async function getData() {
@@ -18,7 +18,12 @@ function About() {
   return dynamicText ? (
     <div className="About">
       <h1>About Us</h1>
-      <p>{dynamicText || 'Example Text'}</p>
+      {dynamicText.map(text => (
+        <>
+          <p>{text.value}</p>
+          <br/>
+        </>
+      ))}
     </div>
   ) : (
     <p>nothing here yet</p>
