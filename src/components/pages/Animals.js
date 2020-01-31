@@ -23,7 +23,7 @@ export default function Animals(props) {
     <>
       <div className='animals'>
           {animals.slice(pageNum*aPerPage, pageNum*aPerPage+aPerPage).map(animal => (
-            <div key={animal._id} >
+            <div key={animal._id} onClick={() => props.redirect(`animal/${animal._id}`)} >
               <img src={animal.image} alt='animal' />
               <h3>{animal.name || 'Name'}</h3>
               <p>{animal.breed || 'Breed'}</p>

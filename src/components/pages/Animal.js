@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import {useParams} from "react-router-dom";
 
 import Carousel from '../helpers/Carousel'
 
@@ -16,11 +17,12 @@ export default function Animal(props) {
   ])
   const [animal, setAnimal] = useState()
 
+  let { id } = useParams()
+
   useEffect(() => {
-    axios.get('http://localhost:3001/animals/profile/:id')
+    axios.get(`http://localhost:3001/animals/profile/${id}`)
       .then(result => {
-        console.log(result)
-        setAnimal(result.data.value)
+        setAnimal(result.data)
       })
   }, [])
 

@@ -1,6 +1,7 @@
 import React from 'react'
 
-function Vets() {
+function Vets(props) {
+
   return (
     <div className="Vets">
     </div>

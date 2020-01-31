@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom"
 
 import Header from './Header'
@@ -24,42 +25,49 @@ import {
 import '../stylesheets/App.scss'
 
 function App() {
+
+  const [redirect, setRedirect] = useState(null)
+
+  const redirectFunc = (val) => {
+    setRedirect(val)
+  }
+
   return (
     <div className="App">
       <Router>
         <Header />
 
-        <Main>
+        <Main redirect={redirect} setRedirect={setRedirect} >
           <Switch>
             <Route exact path="/">
-              <Home />
+              <Home redirect={redirectFunc} />
             </Route>
             <Route path="/about">
-              <About />
+              <About redirect={redirectFunc} />
             </Route>
             <Route path="/programs">
-              <Programs />
+              <Programs redirect={redirectFunc} />
             </Route>
             <Route path="/foster">
-              <Foster />
+              <Foster redirect={redirectFunc} />
             </Route>
             <Route path="/volunteer">
-              <Volunteer />
+              <Volunteer redirect={redirectFunc} />
             </Route>
             <Route path="/help">
-              <Help />
+              <Help redirect={redirectFunc} />
             </Route>
             <Route path="/vets">
-              <Vets />
+              <Vets redirect={redirectFunc} />
             </Route>
             <Route path="/contact">
-              <Contact />
+              <Contact redirect={redirectFunc} />
             </Route>
             <Route exact path="/animals">
-              <Animals />
+              <Animals redirect={redirectFunc} />
             </Route>
             <Route path="/animal/:id">
-              <Animal />
+              <Animal redirect={redirectFunc} />
             </Route>
           </Switch>
         </Main>
