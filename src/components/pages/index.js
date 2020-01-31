@@ -7,6 +7,7 @@ import Home from './Home'
 import Programs from './Programs'
 import Vets from './Vets'
 import Animal from './Animal'
+import Volunteer from './Volunteer'
 
 export {
   About,
@@ -17,5 +18,6 @@ export {
   Home,
   Programs,
   Vets,
-  Animal
+  Animal,
+  Volunteer
 }
