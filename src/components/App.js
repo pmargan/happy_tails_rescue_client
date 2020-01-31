@@ -11,13 +11,14 @@ import Main from './Main'
 import {
   About,
   Adopt,
+  Animal,
   Contact,
   Foster,
   Help,
   Home,
   Programs,
   Vets,
-  Animal
+  Volunteer
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -44,6 +45,9 @@ function App() {
             </Route>
             <Route path="/foster">
               <Foster />
+            </Route>
+            <Route path="/volunteer">
+              <Volunteer />
             </Route>
             <Route path="/help">
               <Help />
