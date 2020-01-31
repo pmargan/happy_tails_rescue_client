@@ -55,11 +55,11 @@ function App() {
             <Route path="/contact">
               <Contact />
             </Route>
+            <Route exact path="/animals">
+              <Animals />
+            </Route>
             <Route path="/animal/:id">
               <Animal />
-            </Route>
-            <Route path="/animals">
-              <Animals />
             </Route>
           </Switch>
         </Main>
