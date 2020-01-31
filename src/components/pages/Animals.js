@@ -1,21 +1,29 @@
 import React, {useState, useEffect} from 'react'
 
+import axios from 'axios'
+
 export default function Animals(props) {
 
   const aPerPage = 6
 
-  const [animals, setAnimals] = useState([{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}, {id: 7}])
+  const [animals, setAnimals] = useState([])
   const [pageNum, setPageNum] = useState(0)
 
   useEffect(() => {
-    // pull animals from backend
+    axios.get('http://localhost:3001/animals')
+      .then(res => {
+        setAnimals(res.data)
+      })
+      .catch(e => {
+        console.log(e)
+      })
   }, [])
   
   return (
     <>
       <div className='animals'>
           {animals.slice(pageNum*aPerPage, pageNum*aPerPage+aPerPage).map(animal => (
-            <div key={animal.id} >
+            <div key={animal._id} >
               <img src={animal.image} alt='animal' />
               <h3>{animal.name || 'Name'}</h3>
               <p>{animal.breed || 'Breed'}</p>

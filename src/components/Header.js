@@ -26,16 +26,19 @@ function Header() {
           <Link onClick={() => setHamburger(false)} to='/foster'>Foster</Link>
         </li>
         <li>
+          <Link onClick={() => setHamburger(false)} to='/volunteer'>Volunteer</Link>
+        </li>
+        <li>
           <Link onClick={() => setHamburger(false)} to='/help'>Help Us</Link>
         </li>
         <li>
           <Link onClick={() => setHamburger(false)} to='/vets'>Our Vets</Link>
         </li>
         <li>
-          <Link onClick={() => setHamburger(false)} to='/events'>Events</Link>
+          <Link onClick={() => setHamburger(false)} to='/contact'>Contact</Link>
         </li>
         <li>
-          <Link onClick={() => setHamburger(false)} to='/contact'>Contact</Link>
+          <Link onClick={() => setHamburger(false)} to='/animals'>Animals</Link>
         </li>
       </ul>
       <div className={'hamburger' + (hamburger ? ' close' : '')} onClick={() => setHamburger(!hamburger)}>

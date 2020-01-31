@@ -4,19 +4,18 @@ import axios from 'axios'
 function Paragraph(props) {
   return (
         <>
-          <h2>{props.data.title}</h2>
           <p>{props.data.value}</p>
         </>
   )
 }
 
 
-function Help() {
+function Volunteer() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
     async function getData() {
-      axios.get('http://localhost:3001/help-us')
+      axios.get('http://localhost:3001/volunteer')
         .then(result => {
           setDynamicText(result.data.value)
         })
@@ -25,8 +24,8 @@ function Help() {
   }, [])
   
   return dynamicText ? (
-    <div className="Help">
-      <h1>Help Us</h1>
+    <div className="Volunteer">
+      <h1>Volunteer</h1>
       {dynamicText.map(text => (
         <Paragraph data={{...text}} />
       ))}
@@ -36,4 +35,4 @@ function Help() {
   )
 }
 
-export default Help
+export default Volunteer

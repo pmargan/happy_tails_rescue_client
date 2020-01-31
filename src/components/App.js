@@ -10,15 +10,15 @@ import Footer from './Footer'
 import Main from './Main'
 import {
   About,
-  Adopt,
+  Animal,
   Contact,
-  Events,
   Foster,
   Help,
   Home,
   Programs,
   Vets,
-  Animal
+  Volunteer,
+  Animals
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -40,11 +40,11 @@ function App() {
             <Route path="/programs">
               <Programs />
             </Route>
-            <Route path="/adopt">
-              <Adopt />
-            </Route>
             <Route path="/foster">
               <Foster />
+            </Route>
+            <Route path="/volunteer">
+              <Volunteer />
             </Route>
             <Route path="/help">
               <Help />
@@ -52,14 +52,14 @@ function App() {
             <Route path="/vets">
               <Vets />
             </Route>
-            <Route path="/events">
-              <Events />
-            </Route>
             <Route path="/contact">
               <Contact />
             </Route>
             <Route path="/animal/:id">
               <Animal />
+            </Route>
+            <Route path="/animals">
+              <Animals />
             </Route>
           </Switch>
         </Main>
