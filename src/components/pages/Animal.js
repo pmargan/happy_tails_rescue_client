@@ -1,12 +1,21 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 
 export default function Animal(props) {
 
   const [image, setImage] = useState(0)
   const [images, setImages] = useState(0)
+  const [animal, setAnimal] = useState(null)
 
   useEffect(() => {
-    // get images
+    async function getData() {
+      axios.get('http://localhost:3001/animals/profile/:id')
+        .then(result => {
+          console.log(result)
+          setAnimal(result.data.value)
+        })
+    }
+    getData()
   }, [])
 
   const getNextImg = () => {
@@ -25,8 +34,18 @@ export default function Animal(props) {
     setImage(image === 0 ? images.length - 1: image - 1)
   }
 
-  return (
+  return animal ? (
     <>
+    <div className="Animals">
+      
+      {animal.map(text => (
+        <>
+          <h1>{text.name}</h1>
+          <p>{text.value}</p>
+          <br/>
+        </>
+      ))}
+    </div>
       <div className='carousal' >
 
         <button onClick={prevImg} >{'<'}</button>
@@ -40,5 +59,7 @@ export default function Animal(props) {
         </div>
       </div>
     </>
+  ) : (
+    <p>nothing here yet</p>
   )
 }
