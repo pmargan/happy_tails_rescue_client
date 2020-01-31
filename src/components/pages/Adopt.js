@@ -10,7 +10,7 @@ function Adopt() {
 
   useEffect(() => {
     async function getData() {
-      axios.get('http://localhost:3001/animals/all-animals')
+      axios.get('http://localhost:3001/animals')
         .then(result => {
           console.log(result)
           setAnimals(result.data.value)
