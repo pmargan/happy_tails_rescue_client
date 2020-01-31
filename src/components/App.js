@@ -58,7 +58,7 @@ function App() {
             <Route path="/contact">
               <Contact />
             </Route>
-            <Route path="/animal/:id">
+            <Route path="/animal/profile/:id">
               <Animal />
             </Route>
           </Switch>
