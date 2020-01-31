@@ -23,7 +23,7 @@
 
     a {
       text-decoration: none;
-      color: black;
+      color: white;
 
       &::after {
         margin-top: 3px;
@@ -31,7 +31,7 @@
         display: block;
         width: 100%;
         height: 2px;
-        background-color: black;
+        background-color: white;
         transform: scaleX(0);
         transition: transform 0.2s ease;
       }
@@ -78,9 +78,10 @@
       top: 50px;
       height: calc(100vh - 50px);
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.7);
       backdrop-filter: blur(4px);
       transition: transform 0.4s ease;
+      color: white;
 
       li {
         opacity: 0;
