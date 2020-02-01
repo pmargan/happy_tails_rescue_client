@@ -6,13 +6,10 @@ function Contact() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    async function getData() {
-      axios.get('http://localhost:3001/contact')
-        .then(result => {
-          setDynamicText(result.data.value)
-        })
-    }
-    getData()
+    axios.get('http://localhost:3001/contact')
+      .then(result => {
+        setDynamicText(result.data.value)
+      })
   }, [])
   
   return dynamicText ? (

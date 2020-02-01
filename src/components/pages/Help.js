@@ -3,10 +3,10 @@ import axios from 'axios'
 
 function Paragraph(props) {
   return (
-        <>
-          <h2>{props.data.title}</h2>
-          <p>{props.data.value}</p>
-        </>
+    <>
+      <h2>{props.data.title}</h2>
+      <p>{props.data.value}</p>
+    </>
   )
 }
 

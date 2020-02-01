@@ -3,25 +3,21 @@ import axios from 'axios'
 
 function Paragraph(props) {
   return (
-        <>
-          <h2>{props.data.title}</h2>
-          <p>{props.data.value}</p>
-        </>
+    <>
+      <h2>{props.data.title}</h2>
+      <p>{props.data.value}</p>
+    </>
   )
 }
-
 
 function Programs() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    async function getData() {
-      axios.get('http://localhost:3001/community-programs')
-        .then(result => {
-          setDynamicText(result.data.value)
-        })
-    }
-    getData()
+    axios.get('http://localhost:3001/community-programs')
+      .then(result => {
+        setDynamicText(result.data.value)
+      })
   }, [])
   
   return dynamicText ? (

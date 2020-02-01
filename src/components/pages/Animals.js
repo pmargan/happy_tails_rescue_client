@@ -14,9 +14,6 @@ export default function Animals(props) {
       .then(res => {
         setAnimals(res.data)
       })
-      .catch(e => {
-        console.log(e)
-      })
   }, [])
   
   return (

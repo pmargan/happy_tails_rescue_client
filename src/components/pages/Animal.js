@@ -24,7 +24,7 @@ export default function Animal(props) {
       .then(result => {
         setAnimal(result.data)
       })
-  }, [])
+  }, [id])
 
   return (
     <>

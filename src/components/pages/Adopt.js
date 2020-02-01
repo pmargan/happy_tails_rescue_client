@@ -9,14 +9,11 @@ function Adopt() {
   const [pageNum, setPageNum] = useState(0)
 
   useEffect(() => {
-    async function getData() {
-      axios.get('http://localhost:3001/animals')
-        .then(result => {
-          console.log(result)
-          setAnimals(result.data.value)
-        })
-    }
-    getData()
+    axios.get('http://localhost:3001/animals')
+      .then(result => {
+        console.log(result)
+        setAnimals(result.data.value)
+      })
   }, [])
 
   return animals ? (
