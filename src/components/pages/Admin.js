@@ -11,7 +11,7 @@ export default function Admin(props) {
   )
 
   useEffect(() => {
-
+    
   }, [])
 
   const saveDynamicText = (formData) => {
@@ -22,7 +22,7 @@ export default function Admin(props) {
     <>
       <Form className='' onSumbit={saveDynamicText}>
         <div>
-
+          
         </div>
       </Form>
     </>

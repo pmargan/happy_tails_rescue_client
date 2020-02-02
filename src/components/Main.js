@@ -14,10 +14,10 @@ export default function Main(props) {
   return (
     <main>
       <div className='options' >
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div onClick={() => props.redirectFunc('/')} ></div>
+        <div onClick={() => props.redirectFunc('/')} ></div>
+        <div onClick={() => props.redirectFunc('/')} ></div>
+        <div onClick={() => props.redirectFunc('/')} ></div>
       </div>
       {props.children}
     </main>

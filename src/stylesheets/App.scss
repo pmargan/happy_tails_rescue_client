@@ -9,3 +9,10 @@ body {
   width: 100vw;
   overflow-x: hidden;
 }
+
+hr {
+  width: 90%;
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

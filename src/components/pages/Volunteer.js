@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function Paragraph(props) {
-  return (
-        <>
-          <p>{props.data.value}</p>
-        </>
-  )
-}
-
+import Paragraph from '../helpers/Paragraph'
 
 function Volunteer() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/volunteer')
+    axios.get('http://localhost:3001/text/Volunteer')
       .then(result => {
         setDynamicText(result.data.value)
       })
   }, [])
   
   return dynamicText ? (
-    <div className="Volunteer">
+    <div className="Volunteer mainContainer">
       <h1>Volunteer</h1>
       {dynamicText.map(text => (
-        <Paragraph data={{...text}} />
+        <Paragraph {...text} key={text._id} />
       ))}
     </div>
   ) : (

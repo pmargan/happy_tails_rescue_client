@@ -37,7 +37,7 @@ function App() {
       <Router>
         <Header />
 
-        <Main redirect={redirect} setRedirect={setRedirect} >
+        <Main redirectFunc={redirectFunc} redirect={redirect} setRedirect={setRedirect} >
           <Switch>
             <Route exact path="/">
               <Home redirect={redirectFunc} />

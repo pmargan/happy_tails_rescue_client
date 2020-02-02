@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import Paragraph from '../helpers/Paragraph'
+
 
 function Contact() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/contact')
+    axios.get('http://localhost:3001/text/contactPage')
       .then(result => {
         setDynamicText(result.data.value)
       })
   }, [])
   
   return dynamicText ? (
-    <div className="Contact">
+    <div className="Contact mainContainer">
       <h1>Contact Us</h1>
+      <br />
       {dynamicText.map(text => (
-        <>
-          <h2>{text.title}</h2>
-          <p>{text.value}</p>
-          <br/>
-        </>
+        <Paragraph {...text} key={text._id} />
       ))}
     </div>
   ) : (
