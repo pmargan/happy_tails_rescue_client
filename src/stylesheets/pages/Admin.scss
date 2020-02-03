@@ -1,6 +1,21 @@
-.textArea {
-  width: 100%;
-  // border: none;
-  resize: none;
-  padding: 10px;
+.Admin {
+  .textArea {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    resize: none;
+    padding: 10px;
+  }
+}
+
+ul.innerList {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 80%;
+
+  li {
+    padding: 5px;
+  }
 }
