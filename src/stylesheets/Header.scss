@@ -16,6 +16,7 @@
     flex-direction: row;
     list-style: none;
     justify-content: space-evenly;
+    color: black;
 
     li {
       display: inline-block;
@@ -23,7 +24,7 @@
 
     a {
       text-decoration: none;
-      color: white;
+      color: black;
 
       &::after {
         margin-top: 3px;
@@ -31,7 +32,7 @@
         display: block;
         width: 100%;
         height: 2px;
-        background-color: white;
+        background-color: black;
         transform: scaleX(0);
         transition: transform 0.2s ease;
       }
@@ -78,10 +79,17 @@
       top: 50px;
       height: calc(100vh - 50px);
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(4px);
       transition: transform 0.4s ease;
-      color: white;
+
+      a {
+        color: white;
+
+        &::after {
+          background-color: white;
+        }
+      }
 
       li {
         opacity: 0;
