@@ -68,16 +68,12 @@ export default function Animal(props) {
               <p>Would Suit: {animal.wouldSuit}</p>
             </div>
 
-            <div className='medical/behavior'>
+            <div className='medicalBehavior'>
               <p>Behavior Notes: {animal.behaviorNotes}</p>
               <p>Medical Notes: {animal.medicalNotes}</p>
 
               
-              {animal.houseTrained ? (
-                <p>House Trained? <FontAwesomeIcon icon={faCheck} color='green' /></p>
-              ) : (
-                <p>House Trained? <FontAwesomeIcon icon={faTimes} color='red' /></p>
-              )}
+              <p>House Trained? <FontAwesomeIcon icon={animal.houseTrained ? faCheck : faTimes} color={animal.houseTrained ? 'green' : 'red' }/></p>
 
 
               
