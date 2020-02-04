@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios'
 import banner from '../../img/banner.jpg'
+import '../../stylesheets/pages/About.scss'
 
 import Paragraph from '../helpers/Paragraph'
 
