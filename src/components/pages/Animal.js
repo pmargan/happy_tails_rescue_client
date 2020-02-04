@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {useParams} from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
+import { faTimes } from "@fortawesome/free-solid-svg-icons"
+
 
 import Carousel from '../helpers/Carousel'
 
@@ -20,7 +24,7 @@ export default function Animal(props) {
   let { id } = useParams()
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/animals/profile/${id}`)
+    axios.get(`http://localhost:3001/animals/${id}`)
       .then(result => {
         setAnimal(result.data)
       })
@@ -30,19 +34,54 @@ export default function Animal(props) {
     <>
       {animal ? (
         <>
-          <div className='animalDetails' >
-            <h1>{animal.name}</h1>
-          </div>
-          <br />
+        <div className='animalHeader'>
+          <div>
           <Carousel images={images} />
-          <div className='animalDetails' >
-            <p>{animal.animalType}</p>
-            <p>{animal.gender}</p>
-            <p>{animal.age} years</p>
-            <p>{animal.primaryBreed}</p>
-            <p>{animal.size}</p>
-            <p>{animal.weight} kg</p>
           </div>
+
+          <div className='animalDetails' >
+            <h2>{animal.name}'s Details</h2>
+            <p>Animal Type: {animal.animalType}</p>
+            <p>Gender: {animal.gender}</p>
+            <p>Age: {animal.age} years</p>
+            <p>Primary Breed: {animal.primaryBreed}</p>
+            {animal.secondaryBreed ? (
+              <p>Secondary Breed: {animal.secondaryBreed}</p>
+            ) : ("")}
+            {animal.crossBreed ? (
+              <p>Cross Breed: Yes</p>
+            ) : ("")}
+            <p>Size: {animal.size}</p>
+            <p>Approx Weight: {animal.weight} kg</p>
+            <p>Color: {animal.color}</p>
+            <p>Coat Type: {animal.coatType}</p>
+            <p>Size: {animal.size}</p>
+            <p>Where to find me: {animal.location}</p>
+            <p>Adoption Fee: ${animal.adoptionFee}</p>
+            </div>
+        </div>
+
+            <div className='description'>
+              <h2>About {animal.name}</h2>
+              <p>{animal.description}</p>
+              <p>Friendly With: {animal.friendlyWith}</p>
+              <p>Would Suit: {animal.wouldSuit}</p>
+            </div>
+
+            <div className='medical/behavior'>
+              <p>Behavior Notes: {animal.behaviorNotes}</p>
+              <p>Medical Notes: {animal.medicalNotes}</p>
+
+              
+              {animal.houseTrained ? (
+                <p>House Trained? <FontAwesomeIcon icon={faCheck} color='green' /></p>
+              ) : (
+                <p>House Trained? <FontAwesomeIcon icon={faTimes} color='red' /></p>
+              )}
+
+
+              
+            </div>
         </>
       ) : (
         <p>nothing here yet</p>

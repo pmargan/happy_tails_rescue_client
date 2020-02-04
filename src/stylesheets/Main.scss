@@ -50,3 +50,23 @@ img {
   width: 80%;
   margin: 0 auto;
 }
+
+.AdoptForm {
+  text-align: center;
+    label {
+      display: block;
+      padding: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+    }
+    .address {
+      display: block;
+    }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+

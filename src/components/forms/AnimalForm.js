@@ -1,18 +1,21 @@
-import React from 'react'
 import axios from 'axios'
+import Form from '../helpers/Form'
+import React from 'react'
 
 function AnimalForm() {
 
-  onFormSubmit = (data) => {
+  const onFormSubmit = (data) => {
     axios
       .post(
         "http://localhost:3001/animals/register",
-        {...data}
+        {...data},
+        console.log(data)
       )
-      .then(res.data)
+      .then(something => console.log(something.data))
   };
 
   return (
+    <>
     <Form className='' onSumbit={onFormSubmit} >
       <div>
       <label>Upload Images</label>
@@ -33,25 +36,21 @@ function AnimalForm() {
         <input
           type="text"
           name='name'
-          value={this.state.name}
         />
       <label>Description</label>
         <input
           type="text"
           name='description'
-          value={this.state.description}
         />
       <label>Age</label>
         <input
           type="number"
           name='age'
-          value={this.state.age}
         />
        <label>Date of Birth</label>
         <input
           type="date"
           name='dob'
-          value={this.state.dob}
         />
       <label>Gender</label>
       <select 
@@ -65,13 +64,11 @@ function AnimalForm() {
         <input
           type="string"
           name='primaryBreed'
-          value={this.state.primaryBreed}
         />
         <label>Secondary Breed</label>
         <input
           type="string"
           name='secondaryBreed'
-          value={this.state.secondaryBreed}
         />
          <label>Cross Breed</label>
       <select 
@@ -84,13 +81,11 @@ function AnimalForm() {
         <input
           type="string"
           name='weight'
-          value={this.state.weight}
         />
         <label>Color</label>
         <input
           type="string"
           name='color'
-          value={this.state.color}
         />
         <label>Coat Type</label>
         <select 
@@ -114,10 +109,10 @@ function AnimalForm() {
           <input
             type="string"
             name='microchip'
-            value={this.state.microchip}
           />
         </select>
-        <button>Next</button>
+        <section><button>Next</button></section>
+        
       </div>
 
 
@@ -127,21 +122,19 @@ function AnimalForm() {
         <input
           type="string"
           name='location'
-          value={this.state.location}
         />
         <label>Friendly With</label>
         <input
           type="string"
           name='friendlyWith'
-          value={this.state.friendlyWith}
         />
         <label>Would Suit</label>
         <input
           type="string"
           name='wouldSuit'
-          value={this.state.wouldSuit}
         />
-         <button>Next</button>
+        <section><button>Next</button></section>
+         
     </div>
 
     <div>
@@ -149,13 +142,11 @@ function AnimalForm() {
         <input
           type="string"
           name='behaviorNotes'
-          value={this.state.behaviorNotes}
         />
         <label>Medical Notes</label>
         <input
           type="string"
           name='medicalNotes'
-          value={this.state.medicalNotes}
         />
         <label>House Trained</label>
         <select 
@@ -197,8 +188,8 @@ function AnimalForm() {
           <option value='false'>No</option>
         />
         </select>
-      
-         <button>Next</button>
+      <section><button>Next</button></section>
+         
   </div>
 
 
@@ -207,14 +198,12 @@ function AnimalForm() {
         <input
           type="number"
           name='adoptionFee'
-          value={this.state.adoptionFee}
         />
         <label>Breeder ID Number</label>
         <input
           type="string"
           name='bin'
-          value={this.state.bin}
-          default='BIN0000561500753'
+          defaultValue='BIN0000561500753'
         />
         <label>House Trained</label>
         <select 
@@ -224,7 +213,8 @@ function AnimalForm() {
           <option value='false'>No</option>
         />
         </select>
-         <button>Next</button>
+        <section><button>Next</button></section>
+         
   </div>
 
 
@@ -233,11 +223,12 @@ function AnimalForm() {
         <input
           type="string"
           name='otherNotes'
-          value={this.state.otherNotes}
         />
-    <button>Submit</button>
+        <section><button>Submit</button></section>
+    
   </div>
 </Form>
+</>
   )
 }
 
