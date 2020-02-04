@@ -1,28 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios'
+
+import Paragraph from '../helpers/Paragraph'
 
 function Foster() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    async function getData() {
-      axios.get('http://localhost:3001/foster')
-        .then(result => {
-          setDynamicText(result.data.value)
-        })
-    }
-    getData()
+    axios.get('http://localhost:3001/text/foster')
+      .then(result => {
+        setDynamicText(result.data.value)
+      })
   }, [])
   
   return dynamicText ? (
-    <div className="About">
+    <div className="About mainContainer">
       <h1>Foster</h1>
+      <br />
       {dynamicText.map(text => (
-        <>
-          <h2>{text.title}</h2>
-          <p>{text.value}</p>
-          <br/>
-        </>
+        <Paragraph {...text} key={text._id} />
       ))}
     </div>
   ) : (

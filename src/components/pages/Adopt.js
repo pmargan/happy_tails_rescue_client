@@ -17,7 +17,6 @@ function AdoptForm() {
     <Form className='' onSumbit={onFormSubmit} >
       <div>
           <h1>Applicant details</h1>
-
           <label>First Name</label>
         <input
           type="text"

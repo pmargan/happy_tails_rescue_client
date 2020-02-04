@@ -9,8 +9,9 @@ import '../stylesheets/Main.scss'
 export default function Main(props) {
 
   if(props.redirect) {
+    let redirect = props.redirect
     props.setRedirect(null)
-    return <Redirect to={props.redirect} />
+    return <Redirect to={redirect} />
   }
 
   return (
