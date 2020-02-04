@@ -10,6 +10,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
 import {
+  Admin,
   About,
   Animal,
   Contact,
@@ -37,10 +38,13 @@ function App() {
       <Router>
         <Header />
 
-        <Main redirect={redirect} setRedirect={setRedirect} >
+        <Main redirectFunc={redirectFunc} redirect={redirect} setRedirect={setRedirect} >
           <Switch>
             <Route exact path="/">
               <Home redirect={redirectFunc} />
+            </Route>
+            <Route path="/admin">
+              <Admin redirect={redirectFunc} />
             </Route>
             <Route path="/about">
               <About redirect={redirectFunc} />

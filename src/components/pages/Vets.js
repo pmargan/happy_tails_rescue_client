@@ -3,7 +3,7 @@ import React from 'react'
 function Vets(props) {
 
   return (
-    <div className="Vets">
+    <div className="Vets mainContainer">
     </div>
   )
 }

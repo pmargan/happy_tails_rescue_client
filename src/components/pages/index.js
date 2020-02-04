@@ -1,3 +1,4 @@
+import Admin from './Admin'
 import About from './About'
 import Contact from './Contact'
 import Foster from './Foster'
@@ -10,6 +11,7 @@ import Volunteer from './Volunteer'
 import Animals from './Animals'
 
 export {
+  Admin,
   About,
   Contact,
   Foster,
