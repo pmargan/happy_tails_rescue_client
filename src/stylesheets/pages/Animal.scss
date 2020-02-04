@@ -1,10 +1,18 @@
-.animalDetails {
-  display: flex;
-  flex-direction: column;
+.animalHeader {
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-top: 30px;
+  .carousel, .animalDetails {
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+  }
 
   p {
     line-height: 1.5;
   }
 }
+
+

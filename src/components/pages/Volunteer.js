@@ -7,7 +7,7 @@ function Volunteer() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/Volunteer')
+    axios.get('http://localhost:3001/text/volunteer')
       .then(result => {
         setDynamicText(result.data.value)
       })

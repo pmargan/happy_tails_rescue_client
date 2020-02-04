@@ -1,4 +1,5 @@
 import React, {useState, useReducer, useRef, useEffect} from 'react'
+import axios from 'axios'
 
 export default function Form(props) {
 
@@ -24,10 +25,12 @@ export default function Form(props) {
     setUserInput({[name]: newValue})
   }
 
+
   const onSubmit = (e) => {
     e.preventDefault()
     if(React.Children.count(props.children) <= page + 1) {
       props.onSubmit(userInput)
+      //handleFormSubmit(userInput)
     }
     setPage(page+1)
   }

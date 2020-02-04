@@ -1,33 +1,38 @@
-import React from 'react'
 import axios from 'axios'
+import Form from '../helpers/Form'
+import React from 'react'
+
 
 function AdoptForm() {
 
-  onFormSubmit = (data) => {
+  const onFormSubmit = (data) => {
     axios
       .post(
-        "http://localhost:3001/adoption",
-        {...data}
+        "http://localhost:3001/text/adoption",
+        {...data},
+        console.log(data)
       )
-      .then(res.data)
-  };
+      .then(something => console.log(something.data))
+  }
 
   return (
     <>
-    <Form className='' onSumbit={onFormSubmit} >
+    <Form className='AdoptForm mainContainer' 
+          onSubmit={onFormSubmit}
+          >
       <div>
           <h1>Applicant details</h1>
-
+          
           <label>First Name</label>
         <input
-          type="text"
+          type="string"
           name='firstName'
-          />
+        />
           <label>Last Name</label>
         <input
-          type="text"
+          type="string"
           name='LastName'
-          />
+        />
           <label>Contact Number</label>
         <input
           type="number"
@@ -35,18 +40,23 @@ function AdoptForm() {
           />
           <label>Email</label>
         <input
-          type="text"
+          type="string"
           name='email'
           />
-        <label>Address</label>
+        <label >Street Address</label>
         <input
-          type="text"
-          name='address'
+          type="string"
+          name='addressStreet'
           />
-           <label>Email</label>
-        <input
-          type="text"
-          name='email'
+          <label >Suburb</label>
+          <input
+          type="string"
+          name='addressSuburb'
+          />
+          <label >Postcode</label>
+          <input
+          type="number"
+          name='addressPostcode'
           />
           <label>How did you hear about Happy Tails?</label>
         <select 
@@ -58,57 +68,57 @@ function AdoptForm() {
           <option value='Event'>Event</option>
           <option value='SavourLife'>Savour Life</option>
         </select>
-
-        <button>Next</button>
+        <section><button>Next</button></section>
+        
       </div>
 
 
 
-  <div>
+      <div>
       <h1>Animal Details</h1>
-  <label>What type of animal do you wish to adopt?</label>
-        <select
-        type="string" 
-        name="type">
-        <option value='Dog'>Dog</option>
-        <option value='Cat'>Cat</option>
-        </select>
-        <label>Name</label>
-        <input
-          type="string"
-          name='name'
-        />
-        <label>Age</label>
-        <input
-          type="number"
-          name='age'
-        />
-        <label>Breed</label>
-        <input
-          type="number"
-          name='breed'
-        />
-        <label>Why do you want to adopt a {$type}? (eg companion for yourself /other pet /for children / watchdog etc)</label>
-        <input
-          type="string"
-          name='whyAdopt'
-        />
-        <label>Please tell us why you have applied to adopt this specific {$type}? </label>
-        <input
-          type="string"
-          name='whyThisAnimal'
-        />
-        <label>What characteristics in a {$type} are most desirable to you? }? </label>
-        <input
-          type="string"
-          name='desirableCharacteristics'
-        />
-        <label>What characteristics in a {$type} are least desirable to you? }? </label>
-        <input
-          type="string"
-          name='undesirableCharacteristics'
-        />
-         <button>Next</button>
+         <label>What type of animal do you wish to adopt?</label>
+          <select
+          type="string" 
+          name="type">
+          <option value='Dog'>Dog</option>
+          <option value='Cat'>Cat</option>
+          </select>
+          <label>Name</label>
+          <input
+            type="string"
+            name='name'
+          />
+          <label>Age</label>
+          <input
+            type="number"
+            name='age'
+          />
+          <label>Breed</label>
+          <input
+            type="string"
+            name='breed'
+          />
+          <label>Why do you want to adopt a (Cat or Dog)? (eg companion for yourself /other pet /for children / watchdog etc)</label>
+          <input
+            type="string"
+            name='whyAdopt'
+          />
+          <label>Please tell us why you have applied to adopt this specific (Cat or Dog)? </label>
+          <input
+            type="string"
+            name='whyThisAnimal'
+          />
+          <label>What characteristics in a (Cat or Dog) are most desirable to you? }? </label>
+          <input
+            type="string"
+            name='desirableCharacteristics'
+          />
+          <label>What characteristics in a (Cat or Dog) are least desirable to you? }? </label>
+          <input
+            type="string"
+            name='undesirableCharacteristics'
+          />
+          <section><button>Next</button></section>
     </div>
 
 
@@ -124,34 +134,35 @@ function AdoptForm() {
         <option value='I rent and do not have currently have permission (will seek asap)'>I rent and do not have currently have permission (will seek asap)</option>
         </select>,
 
-        <label>Please describe what the {$type}s living arrangements and environment would be during the day and at night.</label>
+        <label>Please describe what the (Cat or Dog)s living arrangements and environment would be during the day and at night.</label>
         <input
-          type="text"
+          type="string"
           name='livingArrangementDayNight'
         />
 
         {/* hide this one for cats */}
         <label>Please describe your home (house, apartment, acreage etc) and yard size including fence height and material: </label>
         <input
-          type="text"
+          type="string"
           name='describeHomeFencing'
         />
         <label>Do you have any pets of your own? Please tell us about them (Animal type, breed, sex, ages). </label>
         <input
-          type="text"
+          type="string"
           name='otherPets'
         />
         <label>Are your pets up to date with vetwork? (Desexed, microchipped, vaccinated yearly, worm and flea treatment monthly). If not, please describe why below</label>
         <input
-          type="text"
+          type="string"
           name='otherPetsVetwork'
         />
         <label>Please describe the humans who lives with you or visit often (age etc)</label>
         <input
-          type="text"
+          type="string"
           name='otherPeople'
         />
-         <button>Next</button>
+        <section><button>Next</button></section>
+         
     </div>
 
 
@@ -159,11 +170,11 @@ function AdoptForm() {
       <h1>Your Lifestyle</h1>
       <label>How often will your animals be left at home alone? </label>
         <input
-          type="number"
+          type="string"
           name='homeAloneHours'
         />
 
-        {/* if (this.state.type == 'Cat' || 'Kiiten') { */}
+        {/* if (this.state.type == 'Cat' || 'Kitten') { */}
         {/* hide this one for cats */}
         <label>How much exercise would you and your dog do together?</label>
         <select
@@ -180,10 +191,11 @@ function AdoptForm() {
 
         <label>When you go on holidays, what will happen to your pet? Please provide details:</label>
         <input
-          type="text"
+          type="string"
           name='holidays'
         />
-         <button>Next</button>
+        <section><button>Next</button></section>
+         
     </div>
 
 
@@ -193,13 +205,13 @@ function AdoptForm() {
       <h1>Serious Stuff</h1>
       <label>Have you had to surrender or re-home a pet before? If yes please give details: </label>
         <input
-          type="text"
+          type="string"
           name='surrenderAnAnimal'
         />
 
         <label>Have you ever been refused adoption/purchase of an animal through anyshelter, rescue group or breeder? If yes, please specify who and why below:</label>
         <input
-          type="text"
+          type="string"
           name='refusedAnAnimal'
         />
 
@@ -211,17 +223,18 @@ function AdoptForm() {
         <option value='Moving interstate'>Moving interstate</option>
         <option value='Moving overseas'>Moving overseas</option>
         <option value='New child'>New child</option>
-        <option value='New dog/cat that does not like this dog'>New dog/cat that does not like this {$type}</option>
+        <option value='New dog/cat that does not like this dog'>New dog/cat that does not like this (Cat or Dog)</option>
         <option value='Family member develops allergies'>Family member develops allergies</option>
-        <option value='New partner does not like this dog'>New partner does not like this {$type}</option>
-        <option value='The {$type} became sick'>The {$type} became sick</option>
+        <option value='New partner does not like this dog'>New partner does not like this (Cat or Dog)</option>
+        <option value='The (Cat or Dog) became sick'>The (Cat or Dog) became sick</option>
         <option value='Bad behaviour developed such as barking, digging, chewing etc'>Bad behaviour developed such as barking, digging, chewing etc</option>
-        <option value='None of the above - I would be committed to this {$type} for life'>None of the above - I would be committed to this {$type} for life</option>
+        <option value='None of the above - I would be committed to this (Cat or Dog) for life'>None of the above - I would be committed to this (Cat or Dog) for life</option>
         </select>
         <label>Do you give us permission to perform a home check if we feel that it is needed? ie to check fencing is suitable</label>
         <select
         type="string" 
         name="homeCheck">
+        <option value=''></option>
         <option value='true'>Yes</option>
         <option value='false'>No</option>
         </select>
@@ -229,6 +242,7 @@ function AdoptForm() {
         <select
         type="string" 
         name="updates">
+        <option value=''></option>
         <option value='true'>Yes</option>
         <option value='false'>No</option>
         </select>
@@ -236,21 +250,24 @@ function AdoptForm() {
         <select
         type="string" 
         name="returnAnimal">
-        <option value='true'>Yes - I agree to contact Happy Tails Animal Rescue Inc. if I ever need to rehome my {$type}</option>
+        <option value=''></option>
+        <option value='true'>Yes - I agree to contact Happy Tails Animal Rescue Inc. if I ever need to rehome my (Cat or Dog)</option>
         <option value='false'>No</option>
         </select>
-        <label>Is there anything else you would like to tell us about you, your family or your interest in adopting a {$type}? The more information you provide, the better we will be able to determine suitability of your chosen {$type}(s).</label>
+        <label>Is there anything else you would like to tell us about you, your family or your interest in adopting a (Cat or Dog)? The more information you provide, the better we will be able to determine suitability of your chosen (Cat or Dog)(s).</label>
         <input
-          type="text"
+          type="string"
           name='extraInfo'
         />
         <label>I would like to receive newsletters/information in the future from Happy Tails Animal Rescue Inc.</label>
         <select
         type="string" 
         name="newsletter">
+        <option value=''></option>
         <option value='true'>Yes</option>
         <option value='false'>No</option>
         </select>
+        <section><button>Next</button></section>
     </div>
 
     <div>
@@ -259,7 +276,9 @@ function AdoptForm() {
             answers or failure to comply with the requirements of this application can result in the refusal of this and future adoption/s.</p>
         <p>You understand that a property check may be required and will be at the discretion of the rescue.</p>
         <p>We reserve the right to refuse any applicant</p>
-
+        <section><button>Next</button></section>
+      </div>
+      <div>
         <h1>Adoption Contract</h1>
 
         <p>I understand that Happy Tails Animal Rescue Inc. are the legal owners of all animals until the full adoption fee is paid and all vetwork has been completed.</p>
@@ -292,22 +311,22 @@ function AdoptForm() {
             <select
         type="boolean" 
         name="agreeAll">
-        <option value='true'>Yes</option>
-        <option value='false'>No</option>
+
+        <option value=''></option>
+        <option value='true'>I agree</option>
+        <option value='false'>I do not agree</option>
         </select>
         <label>Full Name</label>
         <input
-          type="text"
+          type="string"
           name='fullName'
           />
         <label>Signature</label>
         <input
-          type="text"
+          type="string"
           name='sign'
           />
-    
-
-    <button>Submit</button>
+    <section><button>Submit</button></section>
   </div>
 </Form>
 </>
@@ -315,3 +334,4 @@ function AdoptForm() {
 }
 
 export default AdoptForm
+

@@ -20,7 +20,8 @@ import {
   Programs,
   Vets,
   Volunteer,
-  Animals
+  Animals,
+  Adopt
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -48,6 +49,9 @@ function App() {
             </Route>
             <Route path="/about">
               <About redirect={redirectFunc} />
+            </Route>
+            <Route path="/adopt">
+              <Adopt redirect={redirectFunc} />
             </Route>
             <Route path="/programs">
               <Programs redirect={redirectFunc} />

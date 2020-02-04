@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../img/logo.jpg'
 
 import '../stylesheets/Header.scss'
 
@@ -10,9 +11,6 @@ function Header() {
   return (
     <nav className='Header'>
       <ul className={'navList' + (hamburger ? ' show' : '')}>
-        <li>
-          <Link onClick={() => setHamburger(false)} to='/'>Home</Link>
-        </li>
         <li>
           <Link onClick={() => setHamburger(false)} to='/about'>About Us</Link>
         </li>
