@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios'
+import banner from '../../img/banner.jpg'
 
 import Paragraph from '../helpers/Paragraph'
 
@@ -14,6 +15,8 @@ function About() {
   }, [])
   
   return dynamicText ? (
+  <>
+    <img src={banner} alt="Happy Tails Animal Rescue Banner" />
     <div className="About mainContainer">
       <h1>About Us</h1>
       <br />
@@ -21,6 +24,7 @@ function About() {
         <Paragraph {...text} key={text._id} />
       ))}
     </div>
+    </>
   ) : (
     <p>nothing here yet</p>
   )
