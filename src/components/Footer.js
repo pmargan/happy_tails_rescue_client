@@ -4,7 +4,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 
 import { faFacebook } from "@fortawesome/free-brands-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons"
 
 import '../stylesheets/Footer.scss'
 
@@ -18,9 +17,8 @@ function Footer() {
       <p>BIN: BIN0000561500753</p>
       </div>
       <div>
-      <FontAwesomeIcon icon={faFacebook} size="2x"/>
-      <FontAwesomeIcon icon={faInstagram} size="2x"/>
-      <FontAwesomeIcon icon={faEnvelopeSquare} size="2x"/>
+        <a href="https://www.facebook.com/happytailsanimalrescueinc/"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
+        <a href="https://www.instagram.com/happytailsanimalrescueinc/"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
       </div>
       </>
     </footer>
