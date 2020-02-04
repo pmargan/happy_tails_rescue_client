@@ -149,7 +149,7 @@ function Vets(props) {
       <p>
         These vets support Happy Tails Animal Rescue Inc. in their mission to  
         rehabilitate and rehome animals in need.  Click on the picture  to be
-        taken directly to their website or scroll down to view full details.
+        taken directly to their website.
 
       </p>
       <VetCard link="https://www.toowongfamilyvet.com.au/" 

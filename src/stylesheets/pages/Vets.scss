@@ -3,21 +3,27 @@
   a.vetCardLink {
     text-decoration: none;
     color: black;
+    font-size: 1.2rem;
 
     .vetCard {
       display: inline-flex;
       flex-direction: column;
       justify-content: space-between;
       border: 1px solid black;
-      margin: 10px 0;
-      padding: 20px;
+      margin: 5px 5px;
+      padding: 5px;
       border-radius: 5px;
       width: 400px;
-      height: 200px;
+      height: 250px;
 
       img {
-        margin-top: 5px;
+        margin-top: 1px;
+        margin-bottom: 5px;
       }
     }
   }
+}
+p {
+  font-size: 1.4rem;
+  text-align: center;
 }
