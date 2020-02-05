@@ -2,7 +2,6 @@
   display: grid;
   grid-template-areas: '.carousel .animalDetails';
   grid-gap: 2rem;
-  border-bottom: 1px solid lightblue;
   .carousel {
     justify-content: center;
     align-items: center;
@@ -17,11 +16,10 @@
   display: grid;
   grid-template-areas: '.description .animalChecklist' ;
   grid-gap: 2rem;
-  border-bottom: 1px solid lightblue;
     .description, .medicalBehavior {
     p, h2 {
     padding-top: 1rem;
-    text-align: start; 
+    text-align: left; 
     }
   }
 }

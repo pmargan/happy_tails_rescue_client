@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios'
 
 import Paragraph from '../helpers/Paragraph'
+import '../../stylesheets/pages/Programs.scss'
 
 function Programs() {
   const [dynamicText, setDynamicText] = useState(null)
@@ -18,7 +19,7 @@ function Programs() {
       <h1>Happy Tails Programs</h1>
       <br />
       {dynamicText.map(text => (
-        <Paragraph {...text} key={text._id} />
+        <p className='programText'><Paragraph {...text} key={text._id} /></p>
       ))}
     </div>
   ) : (
