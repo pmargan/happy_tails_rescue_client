@@ -42,14 +42,14 @@ function App() {
         <Main redirectFunc={redirectFunc} redirect={redirect} setRedirect={setRedirect} >
           <Switch>
             <Route exact path="/">
-              <Home redirect={redirectFunc} />
+              <About redirect={redirectFunc} />
             </Route>
             <Route path="/admin">
               <Admin redirect={redirectFunc} />
             </Route>
-            <Route path="/about">
+            {/* <Route path="/about">
               <About redirect={redirectFunc} />
-            </Route>
+            </Route> */}
             <Route path="/adopt">
               <Adopt redirect={redirectFunc} />
             </Route>

@@ -11,7 +11,7 @@ function Header() {
     <nav className='Header'>
       <ul className={'navList' + (hamburger ? ' show' : '')}>
         <li>
-          <Link onClick={() => setHamburger(false)} to='/about'>About Us</Link>
+          <Link onClick={() => setHamburger(false)} to='/'>Home</Link>
         </li>
         <li>
           <Link onClick={() => setHamburger(false)} to='/animals'>Animals</Link>
