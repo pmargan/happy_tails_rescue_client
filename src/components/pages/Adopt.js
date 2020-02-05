@@ -1,6 +1,8 @@
 import axios from 'axios'
 import Form from '../helpers/Form'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Paragraph from '../helpers/Paragraph'
+import '../../stylesheets/pages/Adopt.scss'
 
 
 function AdoptForm() {
@@ -15,8 +17,27 @@ function AdoptForm() {
       .then(something => console.log(something.data))
   }
 
-  return (
+  const [dynamicText, setDynamicText] = useState(null)
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/text/adopt')
+      .then(result => {
+        setDynamicText(result.data.value)
+      })
+  }, [])
+
+  return dynamicText ? (
     <>
+    <>
+    <div className="About mainContainer">
+      <h1>Adopt</h1>
+      <br />
+      {dynamicText.map(text => (
+        <Paragraph {...text} key={text._id} />
+      ))}
+    </div>
+    </>
+
     <Form className='AdoptForm mainContainer' 
           onSubmit={onFormSubmit}
           >
@@ -99,22 +120,22 @@ function AdoptForm() {
             name='breed'
           />
           <label>Why do you want to adopt a (Cat or Dog)? (eg companion for yourself /other pet /for children / watchdog etc)</label>
-          <input
+          <textarea className='largeText'
             type="string"
             name='whyAdopt'
           />
           <label>Please tell us why you have applied to adopt this specific (Cat or Dog)? </label>
-          <input
+          <textarea className='largeText'
             type="string"
             name='whyThisAnimal'
           />
           <label>What characteristics in a (Cat or Dog) are most desirable to you? }? </label>
-          <input
+          <textarea className='largeText'
             type="string"
             name='desirableCharacteristics'
           />
-          <label>What characteristics in a (Cat or Dog) are least desirable to you? }? </label>
-          <input
+          <label>What characteristics in a (Cat or Dog) are least desirable to you? </label>
+          <textarea className='largeText'
             type="string"
             name='undesirableCharacteristics'
           />
@@ -135,29 +156,29 @@ function AdoptForm() {
         </select>,
 
         <label>Please describe what the (Cat or Dog)s living arrangements and environment would be during the day and at night.</label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='livingArrangementDayNight'
         />
 
         {/* hide this one for cats */}
         <label>Please describe your home (house, apartment, acreage etc) and yard size including fence height and material: </label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='describeHomeFencing'
         />
         <label>Do you have any pets of your own? Please tell us about them (Animal type, breed, sex, ages). </label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='otherPets'
         />
         <label>Are your pets up to date with vetwork? (Desexed, microchipped, vaccinated yearly, worm and flea treatment monthly). If not, please describe why below</label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='otherPetsVetwork'
         />
         <label>Please describe the humans who lives with you or visit often (age etc)</label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='otherPeople'
         />
@@ -169,7 +190,7 @@ function AdoptForm() {
     <div>
       <h1>Your Lifestyle</h1>
       <label>How often will your animals be left at home alone? </label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='homeAloneHours'
         />
@@ -190,7 +211,7 @@ function AdoptForm() {
         {/* } */} 
 
         <label>When you go on holidays, what will happen to your pet? Please provide details:</label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='holidays'
         />
@@ -204,13 +225,13 @@ function AdoptForm() {
     <div>
       <h1>Serious Stuff</h1>
       <label>Have you had to surrender or re-home a pet before? If yes please give details: </label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='surrenderAnAnimal'
         />
 
         <label>Have you ever been refused adoption/purchase of an animal through anyshelter, rescue group or breeder? If yes, please specify who and why below:</label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='refusedAnAnimal'
         />
@@ -255,7 +276,7 @@ function AdoptForm() {
         <option value='false'>No</option>
         </select>
         <label>Is there anything else you would like to tell us about you, your family or your interest in adopting a (Cat or Dog)? The more information you provide, the better we will be able to determine suitability of your chosen (Cat or Dog)(s).</label>
-        <input
+        <textarea className='largeText'
           type="string"
           name='extraInfo'
         />
@@ -330,8 +351,11 @@ function AdoptForm() {
   </div>
 </Form>
 </>
+  ) : (
+    <p>nothing here yet</p>
   )
 }
+
 
 export default AdoptForm
 
