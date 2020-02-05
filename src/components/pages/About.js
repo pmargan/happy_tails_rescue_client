@@ -19,7 +19,7 @@ function About() {
   <>
     <img src={banner} alt="Happy Tails Animal Rescue Banner" />
     <div className="About mainContainer">
-      <h1>About Us</h1>
+      <h1>Welcome</h1>
       <br />
       {dynamicText.map(text => (
         <Paragraph {...text} key={text._id} />
