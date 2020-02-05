@@ -7,11 +7,18 @@
   .carousel, .animalDetails {
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
+    margin-left: auto;
   }
+  h2, p {
+    text-align: center;
+    line-height: 1;
+  }
+}
 
-  p {
-    line-height: 1.5;
+.description, .medicalBehavior {
+  p, h2 {
+   padding-top: 1rem;
+  text-align: left; 
   }
 }
 
