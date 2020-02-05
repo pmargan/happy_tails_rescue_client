@@ -15,8 +15,8 @@ function Footer() {
       <p>BIN: BIN0000561500753</p>
       </div>
       <div>
-        <a href="https://www.facebook.com/happytailsanimalrescueinc/"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
-        <a href="https://www.instagram.com/happytailsanimalrescueinc/"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
+        <a data-cy='fb' href="https://www.facebook.com/happytailsanimalrescueinc/"><FontAwesomeIcon icon={faFacebook} size="2x" /></a>
+        <a data-cy='insta' href="https://www.instagram.com/happytailsanimalrescueinc/"><FontAwesomeIcon icon={faInstagram} size="2x"/></a>
       </div>
       <div>
         <h6>Happy Tails Animal Rescue Inc ©2020</h6>
