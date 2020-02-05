@@ -15,7 +15,7 @@ export default function Paragraph({title, value, link, linkText}) {
       )}
       <p>{value}</p>
       <br />
-      {link ? (<Link to={link} >{linkText}</Link>) : null }
+      {link ? <button><Link to={link} >{linkText}</Link></button> : null }
     </ >
   )
 }

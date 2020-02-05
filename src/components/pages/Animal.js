@@ -32,15 +32,16 @@ export default function Animal(props) {
 
   return (
     <>
+    <div className='mainContainer'>
       {animal ? (
         <>
+        <h1>{animal.name}</h1>
         <div className='animalHeader'>
           <div>
           <Carousel images={images} />
           </div>
 
           <div className='animalDetails' >
-            <h2>{animal.name}'s Details</h2>
             <p>Animal Type: {animal.animalType}</p>
             <p>Gender: {animal.gender}</p>
             <p>Age: {animal.age} years</p>
@@ -55,33 +56,34 @@ export default function Animal(props) {
             <p>Approx Weight: {animal.weight} kg</p>
             <p>Color: {animal.color}</p>
             <p>Coat Type: {animal.coatType}</p>
-            <p>Size: {animal.size}</p>
             <p>Where to find me: {animal.location}</p>
             <p>Adoption Fee: ${animal.adoptionFee}</p>
             </div>
         </div>
-
+        <h2>About {animal.name}</h2>
+        <div className='otherInfo'>
             <div className='description'>
-              <h2>About {animal.name}</h2>
+              
               <p>{animal.description}</p>
               <p>Friendly With: {animal.friendlyWith}</p>
               <p>Would Suit: {animal.wouldSuit}</p>
-            </div>
-
-            <div className='medicalBehavior'>
               <p>Behavior Notes: {animal.behaviorNotes}</p>
               <p>Medical Notes: {animal.medicalNotes}</p>
-
-              
-              <p>House Trained? <FontAwesomeIcon icon={animal.houseTrained ? faCheck : faTimes} color={animal.houseTrained ? 'green' : 'red' }/></p>
-
-
-              
             </div>
+            <div className='animalChecklist'>
+            <p>House Trained? <FontAwesomeIcon icon={animal.houseTrained ? faCheck : faTimes} color={animal.houseTrained ? 'green' : 'red' }/></p>
+            <p>Desexed? <FontAwesomeIcon icon={animal.desexed ? faCheck : faTimes} color={animal.desexed ? 'green' : 'red' }/></p>
+            <p>Vaccinated? <FontAwesomeIcon icon={animal.vaccinated ? faCheck : faTimes} color={animal.vaccinated ? 'green' : 'red' }/></p>
+            <p>Wormed? <FontAwesomeIcon icon={animal.wormed ? faCheck : faTimes} color={animal.wormed ? 'green' : 'red' }/></p>
+            <p>Heartworm Treated? <FontAwesomeIcon icon={animal.heartwormTreated ? faCheck : faTimes} color={animal.heartwormTreated ? 'green' : 'red' }/></p>            
+            </div>
+        </div>    
+        <p><strong>** All Happy Tails cats are desexed, microchipped, vaccinated. Flea, worm and tick treatment is provided prior to adoption **</strong></p>
         </>
       ) : (
         <p>nothing here yet</p>
       )}
+      </div>
     </>
   )
 }
