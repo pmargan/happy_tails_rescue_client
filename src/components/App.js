@@ -21,7 +21,8 @@ import {
   Vets,
   Volunteer,
   Animals,
-  Adopt
+  Adopt,
+  GoldenTails
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -76,6 +77,9 @@ function App() {
             </Route>
             <Route path="/animal/:id">
               <Animal redirect={redirectFunc} />
+            </Route>
+            <Route path="/goldenTails">
+              <GoldenTails redirect={redirectFunc} />
             </Route>
           </Switch>
         </Main>
