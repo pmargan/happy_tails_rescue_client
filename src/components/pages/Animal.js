@@ -58,6 +58,7 @@ export default function Animal(props) {
             <p>Coat Type: {animal.coatType}</p>
             <p>Where to find me: {animal.location}</p>
             <p>Adoption Fee: ${animal.adoptionFee}</p>
+            <hr />
             </div>
         </div>
         <h2>About {animal.name}</h2>
@@ -75,7 +76,8 @@ export default function Animal(props) {
             <p>Desexed? <FontAwesomeIcon icon={animal.desexed ? faCheck : faTimes} color={animal.desexed ? 'green' : 'red' }/></p>
             <p>Vaccinated? <FontAwesomeIcon icon={animal.vaccinated ? faCheck : faTimes} color={animal.vaccinated ? 'green' : 'red' }/></p>
             <p>Wormed? <FontAwesomeIcon icon={animal.wormed ? faCheck : faTimes} color={animal.wormed ? 'green' : 'red' }/></p>
-            <p>Heartworm Treated? <FontAwesomeIcon icon={animal.heartwormTreated ? faCheck : faTimes} color={animal.heartwormTreated ? 'green' : 'red' }/></p>            
+            <p>Heartworm Treated? <FontAwesomeIcon icon={animal.heartwormTreated ? faCheck : faTimes} color={animal.heartwormTreated ? 'green' : 'red' }/></p> 
+            <hr />           
             </div>
         </div>    
         <p><strong>** All Happy Tails cats are desexed, microchipped, vaccinated. Flea, worm and tick treatment is provided prior to adoption **</strong></p>
