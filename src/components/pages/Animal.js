@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom' 
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faCheck } from "@fortawesome/free-solid-svg-icons"
@@ -58,9 +59,9 @@ export default function Animal(props) {
             <p>Coat Type: {animal.coatType}</p>
             <p>Where to find me: {animal.location}</p>
             <p>Adoption Fee: ${animal.adoptionFee}</p>
-            <hr />
-            </div>
-        </div>
+            </div> 
+          </div>
+        <hr />
         <h2>About {animal.name}</h2>
         <div className='otherInfo'>
             <div className='description'>
@@ -76,11 +77,12 @@ export default function Animal(props) {
             <p>Desexed? <FontAwesomeIcon icon={animal.desexed ? faCheck : faTimes} color={animal.desexed ? 'green' : 'red' }/></p>
             <p>Vaccinated? <FontAwesomeIcon icon={animal.vaccinated ? faCheck : faTimes} color={animal.vaccinated ? 'green' : 'red' }/></p>
             <p>Wormed? <FontAwesomeIcon icon={animal.wormed ? faCheck : faTimes} color={animal.wormed ? 'green' : 'red' }/></p>
-            <p>Heartworm Treated? <FontAwesomeIcon icon={animal.heartwormTreated ? faCheck : faTimes} color={animal.heartwormTreated ? 'green' : 'red' }/></p> 
-            <hr />           
+            <p>Heartworm Treated? <FontAwesomeIcon icon={animal.heartwormTreated ? faCheck : faTimes} color={animal.heartwormTreated ? 'green' : 'red' }/></p>          
             </div>
-        </div>    
+        </div>
+        <hr />     
         <p><strong>** All Happy Tails cats are desexed, microchipped, vaccinated. Flea, worm and tick treatment is provided prior to adoption **</strong></p>
+        <button><Link to={'/adopt'}>Adoption Application</Link></button>
         </>
       ) : (
         <p>nothing here yet</p>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import Paragraph from '../helpers/Paragraph'
 import AhtThornlands from '../../img/AhtThornlands.png'
 import ToowongFamilyVet from '../../img/ToowongFamilyVet.jpg'
 import AspleyVetinaryPractice from '../../img/AspleyVetinaryPractice.png'

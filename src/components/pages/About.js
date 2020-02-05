@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import banner from '../../img/banner.jpg'
 import '../../stylesheets/pages/About.scss'
