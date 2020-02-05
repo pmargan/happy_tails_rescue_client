@@ -255,7 +255,6 @@ function AdoptForm() {
         <select
         type="string" 
         name="homeCheck">
-        <option value=''></option>
         <option value='true'>Yes</option>
         <option value='false'>No</option>
         </select>
@@ -263,7 +262,6 @@ function AdoptForm() {
         <select
         type="string" 
         name="updates">
-        <option value=''></option>
         <option value='true'>Yes</option>
         <option value='false'>No</option>
         </select>
@@ -271,7 +269,6 @@ function AdoptForm() {
         <select
         type="string" 
         name="returnAnimal">
-        <option value=''></option>
         <option value='true'>Yes - I agree to contact Happy Tails Animal Rescue Inc. if I ever need to rehome my (Cat or Dog)</option>
         <option value='false'>No</option>
         </select>
@@ -284,7 +281,6 @@ function AdoptForm() {
         <select
         type="string" 
         name="newsletter">
-        <option value=''></option>
         <option value='true'>Yes</option>
         <option value='false'>No</option>
         </select>
