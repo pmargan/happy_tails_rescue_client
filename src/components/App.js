@@ -20,7 +20,8 @@ import {
   Programs,
   Vets,
   Volunteer,
-  Animals
+  Animals,
+  AddAnimal
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -72,6 +73,9 @@ function App() {
             </Route>
             <Route path="/animal/:id">
               <Animal redirect={redirectFunc} />
+            </Route>
+            <Route path="/addAnimal">
+              <AddAnimal redirect={redirectFunc} />
             </Route>
           </Switch>
         </Main>

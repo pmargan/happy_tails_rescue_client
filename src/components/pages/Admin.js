@@ -75,7 +75,7 @@ export default function Admin(props) {
 
   return (
     <>
-      <ul className='InnerList' >
+      <ul className='innerList' >
       {Object.keys(dynamicText).map(key => (
         <li key={key}>
           <Link to={`/admin/${key}`} >{key}</Link>
