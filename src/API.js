@@ -1,7 +1,5 @@
 import axios from 'axios'
-
-export const api = axios.create({
-    baseURL: process.env.SERVER
+const api = axios.create({
+    baseURL: 'https://happy-tails-rescue.herokuapp.com/'
 })
-
 export default api

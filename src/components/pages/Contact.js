@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Paragraph from '../helpers/Paragraph'
 
@@ -8,7 +8,7 @@ function Contact() {
   const [dynamicText, setDynamicText] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/contactPage')
+    api.get('/text/contactPage')
       .then(result => {
         setDynamicText(result.data.value)
       })

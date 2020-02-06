@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Paragraph from '../helpers/Paragraph'
 
@@ -7,7 +7,7 @@ function Volunteer() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/volunteer')
+    api.get('/text/volunteer')
       .then(result => {
         setDynamicText(result.data.value)
       })
