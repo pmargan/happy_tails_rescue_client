@@ -77,9 +77,7 @@ export default function Animal(props) {
         <p><strong>** All Happy Tails cats are desexed, microchipped, vaccinated. Flea, worm and tick treatment is provided prior to adoption **</strong></p>
         <button><Link to={'/adopt'}>Adoption Application</Link></button>
         </>
-      ) : (
-        <p></p>
-      )
+      ) : null
       }
       </div>
     </>

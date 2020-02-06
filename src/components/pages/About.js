@@ -27,7 +27,7 @@ function About() {
       ))}
     </div>
     </>
-  ) : (<p></p>)
+  ) : null
 }
 
 export default About

@@ -22,9 +22,7 @@ function Programs() {
         <p className='programText'><Paragraph {...text} key={text._id} /></p>
       ))}
     </div>
-  ) : (
-    <p></p>
-  )
+  ) : null
 }
 
 export default Programs
