@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const api = axios.create({
-    baseURL: https://happy-tails-rescue.herokuapp.com/
+    baseURL: 'https://happy-tails-rescue.herokuapp.com/'
 })
 
 api.interceptors.request.use(function (config)  {
