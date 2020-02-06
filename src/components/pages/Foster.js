@@ -21,7 +21,9 @@ function Foster() {
         <Paragraph {...text} key={text._id} />
       ))}
     </div>
-  ) : null
+  ) : (
+    <p></p>
+  )
 }
 
 export default Foster

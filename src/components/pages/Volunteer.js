@@ -20,7 +20,9 @@ function Volunteer() {
         <Paragraph {...text} key={text._id} />
       ))}
     </div>
-  ) : null
+  ) : (
+    <p></p>
+  )
 }
 
 export default Volunteer

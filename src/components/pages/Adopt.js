@@ -343,7 +343,7 @@ function AdoptForm() {
   </Form>
   </>
   ) : (
-    <p>nothing here yet</p>
+    <p></p>
   )
 }
 

@@ -24,7 +24,9 @@ function Help() {
         <Paragraph {...text} key={text._id} />
       ))}
     </div>
-  ) : null
+  ) : (
+    <p></p>
+  )
 }
 
 export default Help
