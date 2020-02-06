@@ -82,6 +82,7 @@ export default function Admin(props) {
   }
 
   const saveNewVet = data => {
+    console.log(data)
     axios.post('http://localhost:3001/vets', data)
   }
 
