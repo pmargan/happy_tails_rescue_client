@@ -14,7 +14,10 @@ function Header() {
           <Link onClick={() => setHamburger(false)} to='/'>Home</Link>
         </li>
         <li>
-          <Link onClick={() => setHamburger(false)} to='/animals'>Animals</Link>
+          <Link onClick={() => setHamburger(false)} to='/admin'>Admin</Link>
+        </li>
+        <li>
+          <Link onClick={() => setHamburger(false)} to='/addAnimal'>Add Animal</Link>
         </li>
         <li>
           <Link onClick={() => setHamburger(false)} to='/programs'>Happy Tails Programs</Link>

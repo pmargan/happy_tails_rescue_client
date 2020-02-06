@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import Animals from './Animals'
 import Paragraph from '../helpers/Paragraph'
 
 function Foster() {
@@ -20,6 +21,7 @@ function Foster() {
       {dynamicText.map(text => (
         <Paragraph {...text} key={text._id} />
       ))}
+      <Animals />
     </div>
   ) : (
     <p>nothing here yet</p>

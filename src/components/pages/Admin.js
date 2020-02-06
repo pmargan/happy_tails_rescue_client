@@ -4,6 +4,7 @@ import axios from 'axios'
 import Form from '../helpers/Form'
 
 import '../../stylesheets/pages/Admin.scss'
+import { MultiPageAnimals } from './Animals'
 import { Switch, Route, Link } from 'react-router-dom'
 
 function ParagraphForm(props) {
@@ -25,6 +26,8 @@ function ParagraphForm(props) {
 export default function Admin(props) {
 
   const [vets, setVets] = useState([])
+  const [adoptions, setAdoptions] = useState([])
+  const [animals, setAnimals] = useState([])
 
   const [dynamicText, setDynamicText] = useReducer(
     (state, action) => {
@@ -63,6 +66,20 @@ export default function Admin(props) {
       })
   }, [])
 
+  useEffect(() => {
+    axios.get('http://localhost:3001/adoptions')
+      .then(result => {
+        setAdoptions(result.data)
+      })
+  }, [])
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/animals/notApproved')
+      .then(result => {
+        setAnimals(result.data)
+      })
+  }, [])
+
   const saveDynamicText = (formData) => {
     axios.put('http://localhost:3001/text', {
       ...dynamicText
@@ -82,8 +99,11 @@ export default function Admin(props) {
   }
 
   const saveNewVet = data => {
-    console.log(data)
     axios.post('http://localhost:3001/vets', data)
+  }
+
+  const deleteAdoption = id => {
+    axios.delete(`http://localhost:3001/adoptions/${id}`)
   }
 
   return (
@@ -95,9 +115,22 @@ export default function Admin(props) {
         </li>
       ))}
       <li><Link to={`/admin/vets`} >Vets</Link></li>
+      <li><Link to={`/admin/applications`} >Applications</Link></li>
+      <li><Link to={`/admin/animals`} >Animals</Link></li>
     </ul>
       <div className='Admin mainContainer' >
         <Switch>
+          <Route path={`/admin/animals`}>
+            <MultiPageAnimals animals={animals} redirect={props.redirect} />
+          </Route>
+          <Route path={`/admin/applications`}>
+            {adoptions.map(adoption => (
+              <div>
+                <div onClick={() => deleteAdoption(adoption._id)} >Deny</div>
+                <div onClick={() => deleteAdoption(adoption._id)} >Accept</div>
+              </div>
+            ))}
+          </Route>
           <Route path={`/admin/vets`}>
             <Form className='' onSubmit={saveNewVet}>
               <div>

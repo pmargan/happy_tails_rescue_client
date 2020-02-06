@@ -154,7 +154,6 @@ function Vets(props) {
         These vets support Happy Tails Animal Rescue Inc. in their mission to  
         rehabilitate and rehome animals in need.  Click on the picture  to be
         taken directly to their website.
-
       </p>
       {vets.map(vet => (
         <VetCard {...vet} />

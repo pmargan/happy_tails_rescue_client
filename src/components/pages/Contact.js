@@ -5,7 +5,7 @@ import Paragraph from '../helpers/Paragraph'
 
 
 function Contact() {
-  const [dynamicText, setDynamicText] = useState(null)
+  const [dynamicText, setDynamicText] = useState([])
 
   useEffect(() => {
     axios.get('http://localhost:3001/text/contactPage')

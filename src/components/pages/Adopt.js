@@ -10,7 +10,7 @@ function AdoptForm() {
   const onFormSubmit = (data) => {
     axios
       .post(
-        "http://localhost:3001/text/adoption",
+        "http://localhost:3001/adoptions",
         {...data},
         console.log(data)
       )

@@ -5,6 +5,8 @@ import {
   Route
 } from "react-router-dom"
 
+import PrivateRoute from './helpers/PrivateRoute'
+
 import Header from './Header'
 import Footer from './Footer'
 import Main from './Main'
@@ -15,14 +17,14 @@ import {
   Contact,
   Foster,
   Help,
-  Home,
   Programs,
   Vets,
   Volunteer,
-  Animals,
   AddAnimal,
   Adopt,
-  GoldenTails
+  GoldenTails,
+  Register,
+  Login
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -45,12 +47,12 @@ function App() {
             <Route exact path="/">
               <About redirect={redirectFunc} />
             </Route>
-            <Route path="/admin">
+            <PrivateRoute redirect={redirectFunc} path="/admin">
               <Admin redirect={redirectFunc} />
+            </PrivateRoute>
+            <Route path="/register">
+              <Register redirect={redirectFunc} />
             </Route>
-            {/* <Route path="/about">
-              <About redirect={redirectFunc} />
-            </Route> */}
             <Route path="/adopt">
               <Adopt redirect={redirectFunc} />
             </Route>
@@ -72,15 +74,15 @@ function App() {
             <Route path="/contact">
               <Contact redirect={redirectFunc} />
             </Route>
-            <Route exact path="/animals">
-              <Animals redirect={redirectFunc} />
-            </Route>
             <Route path="/animal/:id">
               <Animal redirect={redirectFunc} />
             </Route>
-            <Route path="/addAnimal">
-              <AddAnimal redirect={redirectFunc} />
+            <Route path="/login">
+              <Login redirect={redirectFunc} />
             </Route>
+            <PrivateRoute redirect={redirectFunc} path="/addAnimal">
+              <AddAnimal redirect={redirectFunc} />
+            </PrivateRoute>
             <Route path="/goldenTails">
               <GoldenTails redirect={redirectFunc} />
             </Route>

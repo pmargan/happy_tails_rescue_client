@@ -17,6 +17,14 @@ export default function Animal(props) {
 
   let { id } = useParams()
 
+  const approveAnimal = () => {
+    axios.put(`http://localhost:3001/animals/${animal._id}/approve`)
+  }
+
+  const denyAnimal = id => {
+    axios.delete(`http://localhost:3001/animals/${id}`)
+  }
+
   useEffect(() => {
     axios.get(`http://localhost:3001/animals/${id}`)
       .then(result => {
@@ -75,7 +83,14 @@ export default function Animal(props) {
         </div>
         <hr />     
         <p><strong>** All Happy Tails cats are desexed, microchipped, vaccinated. Flea, worm and tick treatment is provided prior to adoption **</strong></p>
-        <button><Link to={'/adopt'}>Adoption Application</Link></button>
+        {animal.pending ? (
+          <>
+            <button onClick={approveAnimal} >Approve Animal</button>
+            <button onClick={denyAnimal} >Deny Animal</button>
+          </>
+         ) : (
+         <button><Link to={'/adopt'}>Adoption Application</Link></button>
+         )}
         </>
       ) : (
         <p>nothing here yet</p>
