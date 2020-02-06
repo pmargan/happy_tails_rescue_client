@@ -1,3 +1,6 @@
+p {
+  text-align: center;
+}
 .animalHeader {
   display: grid;
   grid-template-areas: '.carousel .animalDetails';
@@ -16,29 +19,24 @@
   display: grid;
   grid-template-areas: '.description .animalChecklist' ;
   grid-gap: 2rem;
-    .description, .medicalBehavior {
-    p, h2 {
+    .description, .animalChecklist {
     padding-top: 1rem;
-    text-align: left; 
-    }
+    text-align: start; 
   }
 }
 
 @media only screen and (max-width: 1300px) {
+  h2 {
+    text-align: center;
+  }
   .animalHeader, .otherInfo {
     display: flex;
     flex-direction: column;
-  }
-  .description, h2 {
-  text-align: center; 
-    p {
-      text-align: center;
-    }
-  }
-} 
+}
+}
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .carousel {
   zoom: 50%;
-}
+  }
 }
