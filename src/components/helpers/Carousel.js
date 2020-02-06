@@ -32,7 +32,7 @@ export default function Carousel(props) {
       setImage(getImg(image - 1))
     }, 200)
   }
-  
+
   return (
     <div className='carousel' >
       <div className={`mainImg ${direction}`} >

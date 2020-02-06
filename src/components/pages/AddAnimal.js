@@ -1,4 +1,4 @@
-import React, {} from 'react'
+import React from 'react'
 import axios from 'axios'
 
 import Form from '../helpers/Form'
@@ -8,13 +8,13 @@ import '../../stylesheets/pages/AddAnimal.scss'
 export default function AddAnimal(props) {
 
   const submitForm = (data) => {
-    axios.post('http://localhost:3001/animals/test', data, {
+    axios.post('http://localhost:3001/animals', data, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
   })
     .then(res => {
-      console.log(res)
+      props.redirect(`/animal/${res.data._id}`)
     })
   }
 
@@ -31,8 +31,10 @@ export default function AddAnimal(props) {
               <td><label>Type: </label></td>
               <td>
                 <select name='animalType' >
-                  <option value='cat'>cat</option>
-                  <option value='dog'>dog</option>
+                  <option value='Dog'>Dog</option>
+                  <option value='Puppy'>Puppy</option>
+                  <option value='Cat'>Cat</option>
+                  <option value='Kitten'>Kitten</option>
                 </select>
               </td>
             </tr>
@@ -41,11 +43,11 @@ export default function AddAnimal(props) {
               <td>
                 <div className='radio' >
                   <div>
-                    <input type='radio' name='gender' value='male' />
+                    <input type='radio' name='gender' value='Male' />
                     <label> Male</label>
                   </div>
                   <div>
-                    <input type='radio' name='gender' value='female' />
+                    <input type='radio' name='gender' value='Female' />
                     <label> Female</label>
                   </div>
                 </div>
@@ -97,15 +99,23 @@ export default function AddAnimal(props) {
             </tr>
             <tr>
               <td><label>Coat Type: </label></td>
-              <td><input type='text' name='coatType' /></td>
+              <td>
+                <select name='coatType' >
+                  <option value='Short'>Short</option>
+                  <option value='Medium'>Medium</option>
+                  <option value='Long'>Long</option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td><label>Size: </label></td>
               <td>
                 <select name='size' >
-                  <option value='small'>small</option>
-                  <option value='medium'>medium</option>
-                  <option value='large'>large</option>
+                  <option value='Toy'>Toy</option>
+                  <option value='Small'>Small</option>
+                  <option value='Medium'>Medium</option>
+                  <option value='Large'>Large</option>
+                  <option value='Giant'>Giant</option>
                 </select>
               </td>
             </tr>
@@ -166,6 +176,10 @@ export default function AddAnimal(props) {
             <tr>
               <td><label>Heart Worm Treated: </label></td>
               <td><input type='checkbox' name='heartwormTreated' /></td>
+            </tr>
+            <tr>
+              <td><label>HouseTrained: </label></td>
+              <td><input type='checkbox' name='houseTrained' /></td>
             </tr>
           </tbody></table>
 

@@ -1,4 +1,4 @@
-import React, {Fragment, useReducer, useEffect} from 'react'
+import React, {useReducer, useEffect, useState} from 'react'
 import axios from 'axios'
 
 import Form from '../helpers/Form'
@@ -23,6 +23,8 @@ function ParagraphForm(props) {
 }
 
 export default function Admin(props) {
+
+  const [vets, setVets] = useState([])
 
   const [dynamicText, setDynamicText] = useReducer(
     (state, action) => {
@@ -54,6 +56,13 @@ export default function Admin(props) {
       })
   }, [])
 
+  useEffect(() => {
+    axios.get('http://localhost:3001/vets')
+      .then(result => {
+        setVets(result.data)
+      })
+  }, [])
+
   const saveDynamicText = (formData) => {
     axios.put('http://localhost:3001/text', {
       ...dynamicText
@@ -67,10 +76,13 @@ export default function Admin(props) {
   }
 
   const onTitleChange = (e, type, index) => {
-    console.log('changed title')
     let arr = [...dynamicText[type]]
     arr[index].title = e.target.value
     setDynamicText({type: type, data: arr})
+  }
+
+  const saveNewVet = data => {
+    axios.post('http://localhost:3001/vets', data)
   }
 
   return (
@@ -81,14 +93,50 @@ export default function Admin(props) {
           <Link to={`/admin/${key}`} >{key}</Link>
         </li>
       ))}
+      <li><Link to={`/admin/vets`} >Vets</Link></li>
     </ul>
       <div className='Admin mainContainer' >
         <Switch>
+          <Route path={`/admin/vets`}>
+            <Form className='' onSubmit={saveNewVet}>
+              <div>
+                <h1>Vets</h1>
+                <br />
+                {vets.map(vet => (
+                  <div>
+                    {vet.location}
+                  </div>
+                ))}
+                <br />
+                <h1>New Vet</h1>
+                <br />
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><label>Location: </label></td>
+                      <td><input type='text' name='location' /></td>
+                    </tr>
+                    <tr>
+                      <td><label>Website Link: </label></td>
+                      <td><input type='text' name='link' /></td>
+                    </tr>
+                    <tr>
+                      <td><label>Photo: </label></td>
+                      <td><input type='file' name='images' /></td>
+                      <td><input type='text' name='fieldname' value='images' readOnly hidden /></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <button>Submit</button>
+              </div>
+            </Form>
+          </Route>
           {Object.keys(dynamicText).reverse().map((key, i, arr) => (
             <Route path={`/admin${i === arr.length - 1 ? '' : `/${key}`}`}>
               <Form className='' onSubmit={saveDynamicText}>
                 <div>
-                    <Fragment>
+                    <>
                       <h1>{key}</h1>
                       <br />
                       {dynamicText[key].map((paragraph, i) => (
@@ -97,7 +145,7 @@ export default function Admin(props) {
                       <hr/>
                       <br />
                       <br />
-                    </Fragment>
+                    </>
                   <button>Save</button>
                 </div>
               </Form>

@@ -10,19 +10,18 @@ export default function Animals(props) {
   const [pageNum, setPageNum] = useState(0)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/animals')
+    axios.get('http://localhost:3001/animals/approved')
       .then(res => {
-        console.log(res.data[0])
         setAnimals(res.data)
       })
   }, [])
-  
+
   return (
     <>
       <div className='animals'>
           {animals.slice(pageNum*aPerPage, pageNum*aPerPage+aPerPage).map(animal => (
             <div key={animal._id} onClick={() => props.redirect(`animal/${animal._id}`)} >
-              <img src={animal.image} alt='animal' />
+              <img src={animal.animalPhotos[0]} alt='animal' />
               <h3>{animal.name}</h3>
               <p>{`${animal.primaryBreed}${animal.secondaryBreed ? ` / ${animal.secondaryBreed}` : ''}`}</p>
             </div>
