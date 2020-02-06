@@ -22,7 +22,9 @@ function GoldenTails() {
         <Paragraph {...text} key={text._id} />
       ))}
     </div>
-  ) : null
+  ) : (
+    <p>nothing here yet</p>
+  )
 }
 
 export default GoldenTails
