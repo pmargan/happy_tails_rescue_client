@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import api from '../../API'
 import { Link } from 'react-router-dom' 
 import {useParams} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
@@ -17,8 +17,16 @@ export default function Animal(props) {
 
   let { id } = useParams()
 
+  const approveAnimal = () => {
+    api.put(`http://localhost:3001/animals/${animal._id}/approve`)
+  }
+
+  const denyAnimal = id => {
+    api.delete(`http://localhost:3001/animals/${id}`)
+  }
+
   useEffect(() => {
-    axios.get(`http://localhost:3001/animals/${id}`)
+    api.get(`/animals/${id}`)
       .then(result => {
         setAnimal(result.data)
       })
@@ -75,7 +83,14 @@ export default function Animal(props) {
         </div>
         <hr />     
         <p><strong>** All Happy Tails cats are desexed, microchipped, vaccinated. Flea, worm and tick treatment is provided prior to adoption **</strong></p>
-        <button><Link to={'/adopt'}>Adoption Application</Link></button>
+        {animal.pending ? (
+          <>
+            <button onClick={approveAnimal} >Approve Animal</button>
+            <button onClick={denyAnimal} >Deny Animal</button>
+          </>
+         ) : (
+         <button><Link to={'/adopt'}>Adoption Application</Link></button>
+         )}
         </>
       ) : (
         <p>nothing here yet</p>

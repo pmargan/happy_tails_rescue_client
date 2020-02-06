@@ -1,13 +1,13 @@
-import axios from 'axios'
+import api from '../../API'
 import Form from '../helpers/Form'
 import React from 'react'
 
 function AnimalForm() {
 
   const onFormSubmit = (data) => {
-    axios
+    api
       .post(
-        "http://localhost:3001/animals/register",
+        "/animals/register",
         {...data},
         console.log(data)
       )

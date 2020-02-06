@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../../API'
 import AhtThornlands from '../../img/AhtThornlands.png'
 import ToowongFamilyVet from '../../img/ToowongFamilyVet.jpg'
 import AspleyVetinaryPractice from '../../img/AspleyVetinaryPractice.png'
@@ -138,11 +138,11 @@ function Vets(props) {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/vets')
+    api.get('/text/vets')
       .then(result => {
         setDynamicText(result.data.value)
       })
-      axios.get('http://localhost:3001/vets')
+      api.get('/vets')
         .then(result => {
           setVets(result.data)
         })
@@ -154,7 +154,6 @@ function Vets(props) {
         These vets support Happy Tails Animal Rescue Inc. in their mission to  
         rehabilitate and rehome animals in need.  Click on the picture  to be
         taken directly to their website.
-
       </p>
       {vets.map(vet => (
         <VetCard {...vet} />

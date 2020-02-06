@@ -1,9 +1,10 @@
 import React, {useReducer, useEffect, useState} from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Form from '../helpers/Form'
 
 import '../../stylesheets/pages/Admin.scss'
+import Register from './Register'
 import { Switch, Route, Link } from 'react-router-dom'
 
 function ParagraphForm(props) {
@@ -25,6 +26,7 @@ function ParagraphForm(props) {
 export default function Admin(props) {
 
   const [vets, setVets] = useState([])
+  const [adoptions, setAdoptions] = useState([])
 
   const [dynamicText, setDynamicText] = useReducer(
     (state, action) => {
@@ -44,7 +46,7 @@ export default function Admin(props) {
   )
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text')
+    api.get('/text')
       .then(result => {
         let text = result.data.reduce((acc, page) => {
           acc[page.id] = page.value
@@ -57,14 +59,21 @@ export default function Admin(props) {
   }, [])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/vets')
+    api.get('/vets')
       .then(result => {
         setVets(result.data)
       })
   }, [])
 
+  useEffect(() => {
+    api.get('http://localhost:3001/adoptions')
+      .then(result => {
+        setAdoptions(result.data)
+      })
+  }, [])
+
   const saveDynamicText = (formData) => {
-    axios.put('http://localhost:3001/text', {
+    api.put('/text', {
       ...dynamicText
     })
   }
@@ -83,7 +92,11 @@ export default function Admin(props) {
 
   const saveNewVet = data => {
     console.log(data)
-    axios.post('http://localhost:3001/vets', data)
+    api.post('/vets', data)
+  }
+
+  const deleteAdoption = id => {
+    api.delete(`http://localhost:3001/adoptions/${id}`)
   }
 
   return (
@@ -95,9 +108,22 @@ export default function Admin(props) {
         </li>
       ))}
       <li><Link to={`/admin/vets`} >Vets</Link></li>
+      <li><Link to={`/admin/applications`} >Applications</Link></li>
+      <li><Link to={`/admin/register`} >Add Admin</Link></li>
     </ul>
       <div className='Admin mainContainer' >
         <Switch>
+          <Route path="/admin/register">
+            <Register redirect={props.redirect} />
+          </Route>
+          <Route path={`/admin/applications`}>
+            {adoptions.map(adoption => (
+              <div>
+                <div onClick={() => deleteAdoption(adoption._id)} >Deny</div>
+                <div onClick={() => deleteAdoption(adoption._id)} >Accept</div>
+              </div>
+            ))}
+          </Route>
           <Route path={`/admin/vets`}>
             <Form className='' onSubmit={saveNewVet}>
               <div>
