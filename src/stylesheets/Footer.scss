@@ -2,7 +2,25 @@
 footer {
   position: relative;
   top: 50px;
-  min-height: 150px;
+  min-height: 120px;
   width: 100%;
-  background-color: lightblue;
+  background-color: #89CCDC;
+  text-align: center;
+  .info {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  a {
+    padding: 0rem 0.5rem;
+  }
+  h6 {
+    padding-top: 1rem;
+  }
+}  
+
+@media only screen and (max-width: 1000px) {
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
 }

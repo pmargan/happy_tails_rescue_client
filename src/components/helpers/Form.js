@@ -52,6 +52,7 @@ export default function Form(props) {
     setUserInput({[name]: newValue})
   }
 
+
   const onSubmit = (e) => {
     e.preventDefault()
 
@@ -68,7 +69,12 @@ export default function Form(props) {
     })
 
     if(React.Children.count(props.children) <= page + 1) {
+<<<<<<< HEAD
       props.onSubmit(formData)
+=======
+      props.onSubmit(userInput)
+      //handleFormSubmit(userInput)
+>>>>>>> master
     }
     setPage(page+1)
   }

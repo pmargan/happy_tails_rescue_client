@@ -1,10 +1,44 @@
-.animalDetails {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-
-  p {
-    line-height: 1.5;
+.animalHeader {
+  display: grid;
+  grid-template-areas: '.carousel .animalDetails';
+  grid-gap: 2rem;
+  .carousel {
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
   }
+  h2, p {
+    text-align: center;
+    line-height: 1;
+  }
+}
+.otherInfo {
+  display: grid;
+  grid-template-areas: '.description .animalChecklist' ;
+  grid-gap: 2rem;
+    .description, .medicalBehavior {
+    p, h2 {
+    padding-top: 1rem;
+    text-align: left; 
+    }
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .animalHeader, .otherInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  .description, h2 {
+  text-align: center; 
+    p {
+      text-align: center;
+    }
+  }
+} 
+
+@media only screen and (max-width: 600px) {
+  .carousel {
+  zoom: 50%;
+}
 }

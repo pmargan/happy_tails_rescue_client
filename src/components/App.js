@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Redirect
+  Route
 } from "react-router-dom"
 
 import Header from './Header'
@@ -21,7 +20,9 @@ import {
   Vets,
   Volunteer,
   Animals,
-  AddAnimal
+  AddAnimal,
+  Adopt,
+  GoldenTails
 } from './pages'
 
 import '../stylesheets/App.scss'
@@ -42,13 +43,16 @@ function App() {
         <Main redirectFunc={redirectFunc} redirect={redirect} setRedirect={setRedirect} >
           <Switch>
             <Route exact path="/">
-              <Home redirect={redirectFunc} />
+              <About redirect={redirectFunc} />
             </Route>
             <Route path="/admin">
               <Admin redirect={redirectFunc} />
             </Route>
-            <Route path="/about">
+            {/* <Route path="/about">
               <About redirect={redirectFunc} />
+            </Route> */}
+            <Route path="/adopt">
+              <Adopt redirect={redirectFunc} />
             </Route>
             <Route path="/programs">
               <Programs redirect={redirectFunc} />
@@ -76,6 +80,9 @@ function App() {
             </Route>
             <Route path="/addAnimal">
               <AddAnimal redirect={redirectFunc} />
+            </Route>
+            <Route path="/goldenTails">
+              <GoldenTails redirect={redirectFunc} />
             </Route>
           </Switch>
         </Main>
