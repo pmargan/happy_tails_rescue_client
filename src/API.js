@@ -1,10 +1,7 @@
 import axios from 'axios'
-import dotenv from 'dotenv'
-
-console.log(process.env.REACT_APP_SERVER)
 
 export const api = axios.create({
-    baseURL: process.env.REACT_APP_SERVER
+    baseURL: https://happy-tails-rescue.herokuapp.com/
 })
 
 api.interceptors.request.use(function (config)  {
@@ -21,5 +18,4 @@ api.interceptors.response.use(function (response) {
   }
   return response 
 })
-
 export default api

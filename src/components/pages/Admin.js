@@ -96,7 +96,7 @@ export default function Admin(props) {
   }
 
   const deleteAdoption = id => {
-    api.delete(`http://localhost:3001/adoptions/${id}`)
+    api.delete(`/adoptions/${id}`)
   }
 
   return (

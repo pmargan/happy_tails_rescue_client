@@ -10,14 +10,14 @@ function AdoptForm() {
   const onFormSubmit = (data) => {
     api
       .post(
-        "/text/adoption",
+        "/adoption",
         {...data},
         console.log(data)
       )
       .then(something => console.log(something.data))
   }
 
-  const [dynamicText, setDynamicText] = useState(null)
+  const [dynamicText, setDynamicText] = useState([])
 
   useEffect(() => {
     api.get('/text/adopt')
@@ -63,11 +63,6 @@ function AdoptForm() {
         <input
           type="string"
           name='email'
-          />
-        <label >Street Address</label>
-        <input
-          type="string"
-          name='addressStreet'
           />
           <label >Suburb</label>
           <input
@@ -345,8 +340,8 @@ function AdoptForm() {
           />
     <section><button>Submit</button></section>
   </div>
-</Form>
-</>
+  </Form>
+  </>
   ) : (
     <p>nothing here yet</p>
   )

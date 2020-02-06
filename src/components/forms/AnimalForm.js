@@ -7,7 +7,7 @@ function AnimalForm() {
   const onFormSubmit = (data) => {
     api
       .post(
-        "/animals/register",
+        "/animals",
         {...data},
         console.log(data)
       )
