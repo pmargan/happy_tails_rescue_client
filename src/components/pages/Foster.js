@@ -7,7 +7,7 @@ function Foster() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    api.get('/text/foster')
+    api.get('/foster')
       .then(result => {
         setDynamicText(result.data.value)
       })
