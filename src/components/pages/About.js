@@ -4,6 +4,7 @@ import banner from '../../img/banner.jpg'
 import '../../stylesheets/pages/About.scss'
 
 import Paragraph from '../helpers/Paragraph'
+import { NULL } from 'node-sass'
 
 function About() {
   const [dynamicText, setDynamicText] = useState(null)
@@ -26,9 +27,7 @@ function About() {
       ))}
     </div>
     </>
-  ) : (
-    <p>nothing here yet</p>
-  )
+  ) : null
 }
 
 export default About
