@@ -6,7 +6,7 @@ import '../../stylesheets/pages/About.scss'
 import Paragraph from '../helpers/Paragraph'
 
 function About() {
-  const [dynamicText, setDynamicText] = useState(null)
+  const [dynamicText, setDynamicText] = useState([])
 
   useEffect(() => {
     api.get('/text/welcomePage')

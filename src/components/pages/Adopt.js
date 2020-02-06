@@ -17,7 +17,7 @@ function AdoptForm() {
       .then(something => console.log(something.data))
   }
 
-  const [dynamicText, setDynamicText] = useState(null)
+  const [dynamicText, setDynamicText] = useState([])
 
   useEffect(() => {
     api.get('/text/adopt')

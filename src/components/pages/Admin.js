@@ -4,6 +4,7 @@ import api from '../../API'
 import Form from '../helpers/Form'
 
 import '../../stylesheets/pages/Admin.scss'
+import Register from './Register'
 import { Switch, Route, Link } from 'react-router-dom'
 
 function ParagraphForm(props) {
@@ -25,6 +26,7 @@ function ParagraphForm(props) {
 export default function Admin(props) {
 
   const [vets, setVets] = useState([])
+  const [adoptions, setAdoptions] = useState([])
 
   const [dynamicText, setDynamicText] = useReducer(
     (state, action) => {
@@ -63,6 +65,13 @@ export default function Admin(props) {
       })
   }, [])
 
+  useEffect(() => {
+    api.get('http://localhost:3001/adoptions')
+      .then(result => {
+        setAdoptions(result.data)
+      })
+  }, [])
+
   const saveDynamicText = (formData) => {
     api.put('/text', {
       ...dynamicText
@@ -86,6 +95,10 @@ export default function Admin(props) {
     api.post('/vets', data)
   }
 
+  const deleteAdoption = id => {
+    api.delete(`/adoptions/${id}`)
+  }
+
   return (
     <>
       <ul className='innerList' >
@@ -95,9 +108,22 @@ export default function Admin(props) {
         </li>
       ))}
       <li><Link to={`/admin/vets`} >Vets</Link></li>
+      <li><Link to={`/admin/applications`} >Applications</Link></li>
+      <li><Link to={`/admin/register`} >Add Admin</Link></li>
     </ul>
       <div className='Admin mainContainer' >
         <Switch>
+          <Route path="/admin/register">
+            <Register redirect={props.redirect} />
+          </Route>
+          <Route path={`/admin/applications`}>
+            {adoptions.map(adoption => (
+              <div>
+                <div onClick={() => deleteAdoption(adoption._id)} >Deny</div>
+                <div onClick={() => deleteAdoption(adoption._id)} >Accept</div>
+              </div>
+            ))}
+          </Route>
           <Route path={`/admin/vets`}>
             <Form className='' onSubmit={saveNewVet}>
               <div>
