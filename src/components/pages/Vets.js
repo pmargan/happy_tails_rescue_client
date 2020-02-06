@@ -24,7 +24,7 @@ function VetCard(props) {
     <a className='vetCardLink' href={props.link} target='_blank' rel="noopener noreferrer">
       <div className='vetCard' >
           {props.location}
-          <img src={props.image} alt={props.alt}/>
+          <img src={props.src} alt={props.alt}/>
       </div>
     </a>
   )
@@ -125,14 +125,15 @@ let vets = [
   {
     link:"https://vetlove.com.au/ballina-vet-clinic/",
     location:'Ballina',
-    image:VetLoveBallina,
+    image: VetLoveBallina,
     alt:'Vet Love Ballina'
   }
-
 ]
 
 
 function Vets(props) {
+
+  const [vets, setVets] = useState([])
 
   const [dynamicText, setDynamicText] = useState(null)
 
@@ -141,6 +142,10 @@ function Vets(props) {
       .then(result => {
         setDynamicText(result.data.value)
       })
+      axios.get('http://localhost:3001/vets')
+        .then(result => {
+          setVets(result.data)
+        })
   }, [])
 
   return (
@@ -151,64 +156,9 @@ function Vets(props) {
         taken directly to their website.
 
       </p>
-      <VetCard link="https://www.toowongfamilyvet.com.au/" 
-      location='Toowong' image={ToowongFamilyVet} alt='Toowong Family Vet' />
-
-      <VetCard link="http://www.vetwell.com.au/chelmer-graceville/" 
-      location='Chelmer' image={Chelmer} alt='Chelmer Graceville Vet' />
-      
-      <VetCard link="https://www.bestfriendspets.com.au/best-friends-locations/west-ipswich"
-      location='Ipswitch' image={OurVetIpswitch} alt='Our Vet Ipswitch' />
-      
-      <VetCard link="https://vpvh.com.au/"
-      location='Victoria Point' image={VPVHVictoriaPoint} alt="Victoria Point Vet" />
-      
-      <VetCard link="https://evertonparkvet.com.au/"
-      location='Everton Park' image={EvertonPark} alt="Everton Park Vet"/>
-
-      <VetCard link="https://www.ahtvets.com.au/"
-      location='Thornlands' image={AhtThornlands} alt="AHT Thornlands"/>
-
-      <VetCard link="https://www.littlecrittersvet.com.au/contact-us/"
-      location='Bundamba' image={LittleCrittersBundamba} alt="Little Critters"/>
-      
-      <VetCard link="https://www.bestfriendspets.com.au/best-friends-locations/browns-plains"
-      location='Browns Plains' image={OurVetBrownsPlains} alt="Our Vet"/>
-    
-      
-      <VetCard link="https://www.bestfriendspets.com.au/best-friends-locations/tweed-heads-nsw"
-      location='Tweed Heads' South image={OurVetTweedHeadsSouth} alt="Our Vet Tweed Heads South"/>
-      
-      
-      <VetCard link="https://www.bestfriendspets.com.au/best-friends-locations/kawana"
-      location='Kawana/Minyama' image={OurVetMinyama} alt="Our Vet Minyama"/>
-      
-      
-      <VetCard link="https://www.bangalowvets.com.au/"
-      location='Bangalow' image={BangalowVets} alt="Bangalow Vets"/>
-      
-      
-      <VetCard link="https://jimboombavetsurgery.com.au/"
-      location='Jimboomba' image={JVSJimboomba} alt="JVS Jimboomba"/>
-      
-      
-      <VetCard link="http://www.vetwell.com.au/aspley/"
-      location='Aspley' image={AspleyVetinaryPractice} alt="Aspley Vet Practice"/>
-      
-    
-      <VetCard link="http://southsidevetclinic.com.au/contact-us/"
-      location='Loganholme' image={SouthSideVetClinic} alt="Southside Vet"/>
-      
-      <VetCard link="http://petwellnesscentres.com.au/"
-      location='Burleigh Heads' image={PetWellnessBurleighHeads}
-      alt="PetWellness centre Burleigh Heads"/>
-
-
-      <VetCard link="https://vetlove.com.au/ballina-vet-clinic/"
-      location='Ballina' image={VetLoveBallina} alt="Vet Love Ballina"/>
-
-
-
+      {vets.map(vet => (
+        <VetCard {...vet} />
+      ))}
     </div>
   )
 }

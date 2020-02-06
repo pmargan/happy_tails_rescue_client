@@ -11,15 +11,16 @@
   .mainImg {
     display: flex;
     flex-direction: row;
-    width: 410px;
     overflow: hidden;
+    width: 410px;
 
     img {
-      width: 400px;
-      height: 400px;
       object-fit: cover;
       transform: translateX(calc(-100% - 10px));
       transition: none;
+      width: 400px;
+      min-width: 400px;
+      height: 400px;
     }
 
     &.left {
@@ -63,6 +64,7 @@
       overflow: hidden;
 
       img {
+        min-width: 127px;
         width: 127px;
         height: 127px;
         object-fit: cover;

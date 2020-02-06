@@ -14,7 +14,7 @@ function Contact() {
       })
   }, [])
   
-  return dynamicText ? (
+  return (
     <div className="Contact mainContainer">
       <h1>Contact Us</h1>
       <br />
@@ -22,8 +22,6 @@ function Contact() {
         <Paragraph {...text} key={text._id} />
       ))}
     </div>
-  ) : (
-    <p>nothing here yet</p>
   )
 }
 

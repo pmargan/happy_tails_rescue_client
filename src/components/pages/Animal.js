@@ -13,13 +13,6 @@ import '../../stylesheets/pages/Animal.scss'
 
 export default function Animal(props) {
 
-  const [images, setImages] = useState([
-    'https://media.gettyimages.com/photos/abstract-network-background-picture-id836272842?s=2048x2048',
-    'https://media.gettyimages.com/photos/particle-wave-picture-id1017380290?s=2048x2048',
-    'https://media.gettyimages.com/photos/abstract-curly-tendrils-background-picture-id888421376?s=2048x2048',
-    'https://media.gettyimages.com/photos/abstract-background-of-spheres-and-wireframe-landscape-picture-id1017193718?s=2048x2048',
-    'https://media.gettyimages.com/photos/abstract-colorful-background-freezelight-curves-picture-id1018897260?s=2048x2048'
-  ])
   const [animal, setAnimal] = useState()
 
   let { id } = useParams()
@@ -39,7 +32,7 @@ export default function Animal(props) {
         <h1>{animal.name}</h1>
         <div className='animalHeader'>
           <div>
-          <Carousel images={images} />
+          <Carousel images={animal.animalPhotos} />
           </div>
 
           <div className='animalDetails' >

@@ -9,6 +9,7 @@ import Vets from './Vets'
 import Animal from './Animal'
 import Volunteer from './Volunteer'
 import Animals from './Animals'
+import AddAnimal from './AddAnimal'
 import Adopt from './Adopt'
 import GoldenTails from './GoldenTails'
 
@@ -25,6 +26,7 @@ export {
   Animal,
   Volunteer,
   Animals,
+  AddAnimal,
   Adopt,
   GoldenTails
 }

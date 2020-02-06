@@ -17,6 +17,14 @@ function Home() {
           <div>
             <label>World:</label>
             <input type='text' name='World' />
+            <label>TextArea:</label>
+            <textarea type='text' name='TextArea' />
+            <select multiple name='select' >
+              <option value='1' >1</option>
+              <option value='2' >2</option>
+              <option value='3' >3</option>
+              <option value='4' >4</option>
+            </select>
           </div>
           <button>Next</button>
         </div>
