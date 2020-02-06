@@ -1,10 +1,10 @@
 import React, {useReducer, useEffect, useState} from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Form from '../helpers/Form'
 
 import '../../stylesheets/pages/Admin.scss'
-import { MultiPageAnimals } from './Animals'
+import Register from './Register'
 import { Switch, Route, Link } from 'react-router-dom'
 
 function ParagraphForm(props) {
@@ -27,7 +27,6 @@ export default function Admin(props) {
 
   const [vets, setVets] = useState([])
   const [adoptions, setAdoptions] = useState([])
-  const [animals, setAnimals] = useState([])
 
   const [dynamicText, setDynamicText] = useReducer(
     (state, action) => {
@@ -47,7 +46,7 @@ export default function Admin(props) {
   )
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text')
+    api.get('/text')
       .then(result => {
         let text = result.data.reduce((acc, page) => {
           acc[page.id] = page.value
@@ -60,28 +59,21 @@ export default function Admin(props) {
   }, [])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/vets')
+    api.get('/vets')
       .then(result => {
         setVets(result.data)
       })
   }, [])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/adoptions')
+    api.get('http://localhost:3001/adoptions')
       .then(result => {
         setAdoptions(result.data)
       })
   }, [])
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/animals/notApproved')
-      .then(result => {
-        setAnimals(result.data)
-      })
-  }, [])
-
   const saveDynamicText = (formData) => {
-    axios.put('http://localhost:3001/text', {
+    api.put('/text', {
       ...dynamicText
     })
   }
@@ -99,11 +91,12 @@ export default function Admin(props) {
   }
 
   const saveNewVet = data => {
-    axios.post('http://localhost:3001/vets', data)
+    console.log(data)
+    api.post('/vets', data)
   }
 
   const deleteAdoption = id => {
-    axios.delete(`http://localhost:3001/adoptions/${id}`)
+    api.delete(`http://localhost:3001/adoptions/${id}`)
   }
 
   return (
@@ -116,12 +109,12 @@ export default function Admin(props) {
       ))}
       <li><Link to={`/admin/vets`} >Vets</Link></li>
       <li><Link to={`/admin/applications`} >Applications</Link></li>
-      <li><Link to={`/admin/animals`} >Animals</Link></li>
+      <li><Link to={`/admin/register`} >Add Admin</Link></li>
     </ul>
       <div className='Admin mainContainer' >
         <Switch>
-          <Route path={`/admin/animals`}>
-            <MultiPageAnimals animals={animals} redirect={props.redirect} />
+          <Route path="/admin/register">
+            <Register redirect={props.redirect} />
           </Route>
           <Route path={`/admin/applications`}>
             {adoptions.map(adoption => (

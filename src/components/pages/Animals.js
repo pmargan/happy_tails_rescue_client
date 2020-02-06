@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
 
-import axios from 'axios'
+import api from '../../API'
 
 export default function Animals(props) {
 
   const [animals, setAnimals] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/animals/approved')
+    api.get('/animals/approved')
       .then(res => {
         setAnimals(res.data)
       })

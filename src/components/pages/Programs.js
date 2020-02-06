@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Paragraph from '../helpers/Paragraph'
 import '../../stylesheets/pages/Programs.scss'
@@ -8,7 +8,7 @@ function Programs() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/communityPrograms')
+    api.get('/text/communityPrograms')
       .then(result => {
         setDynamicText(result.data.value)
       })

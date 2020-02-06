@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Animals from './Animals'
 import Paragraph from '../helpers/Paragraph'
@@ -8,7 +8,7 @@ function Foster() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/foster')
+    api.get('/text/foster')
       .then(result => {
         setDynamicText(result.data.value)
       })

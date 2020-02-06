@@ -1,11 +1,11 @@
 import React from 'react'
 
 import Form from '../helpers/Form'
-import axios from 'axios'
+import api from '../../API'
 
 export default function Login(props) {
   const onSubmit = (data) => {
-    axios.post('http://localhost:3001/auth/login', data)
+    api.post('/auth/login', data)
     .then(res => {
       console.log(res.data.user)
     })
@@ -15,10 +15,19 @@ export default function Login(props) {
     <div className='Login mainContainer' >
       <Form onSubmit={onSubmit} >
         <div>
-          <label>Email: </label>
-          <input type='text' name='email' />
-          <label>Password: </label>
-          <input type='password' name='password' />
+          <table className='formTable'>
+            <tbody>
+              <tr>
+                <td><label>Email: </label></td>
+                <td><input type='text' name='email' /></td>
+              </tr>
+              <tr>
+                <td><label>Password: </label></td>
+                <td><input type='password' name='password' /></td>
+              </tr>
+            </tbody>
+          </table>
+          
           <button>Sign In</button>
         </div>
       </Form>

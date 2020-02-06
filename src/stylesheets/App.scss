@@ -17,3 +17,28 @@ hr {
   border: none;
   border-top: 1px solid #89CCDC;
 }
+
+table.formTable {
+  width: 100%;
+  tr {
+    td {
+      width: 50%;
+      padding: 5px;
+
+      &:nth-child(1) {
+        text-align: right;
+      }
+
+      .radio {
+        div {
+          display: inline-flex;
+          flex-direction: row;
+
+          label {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -23,7 +23,6 @@ import {
   AddAnimal,
   Adopt,
   GoldenTails,
-  Register,
   Login
 } from './pages'
 
@@ -50,9 +49,6 @@ function App() {
             <PrivateRoute redirect={redirectFunc} path="/admin">
               <Admin redirect={redirectFunc} />
             </PrivateRoute>
-            <Route path="/register">
-              <Register redirect={redirectFunc} />
-            </Route>
             <Route path="/adopt">
               <Adopt redirect={redirectFunc} />
             </Route>

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 
 import Form from '../helpers/Form'
-import axios from 'axios'
+import api from '../../API'
 
 export default function Register(props) {
 
@@ -27,7 +27,7 @@ export default function Register(props) {
   }
 
   const onSubmit = data => {
-    axios.post('http://localhost:3001/auth/register', data)
+    api.post('/auth/register', data)
     .then(res => {
       localStorage.setItem('authToken', res.data.authToken)
       console.log(res.data.user)
@@ -38,12 +38,22 @@ export default function Register(props) {
     <div className='Register mainContainer' >
       <Form onSubmit={onSubmit} >
         <div>
-          <label>Email: </label>
-          <input ref={emailRef} type='text' name='email' onChange={onChange} />
-          <label>Password: </label>
-          <input ref={passwordRef} type='password' name='password' onChange={onChange} />
-          <label>Password Confirmation: </label>
-          <input ref={passwordConfirmationRef} type='password' name='passwordConfirmation' onChange={onChange} />
+          <table className='formTable'>
+            <tbody>
+              <tr>
+                <td><label>Email: </label></td>
+                <td><input ref={emailRef} type='text' name='email' onChange={onChange} /></td>
+              </tr>
+              <tr>
+                <td><label>Password: </label></td>
+                <td><input ref={passwordRef} type='password' name='password' onChange={onChange} /></td>
+              </tr>
+              <tr>
+                <td><label>Password Confirmation: </label></td>
+                <td><input ref={passwordConfirmationRef} type='password' name='passwordConfirmation' onChange={onChange} /></td>
+              </tr>
+            </tbody>
+          </table>
           <button disabled={!availiable} >Sign Up</button>
         </div>
       </Form>

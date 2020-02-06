@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../../API'
 import banner from '../../img/banner.jpg'
 import '../../stylesheets/pages/About.scss'
 
 import Paragraph from '../helpers/Paragraph'
 
 function About() {
-  const [dynamicText, setDynamicText] = useState(null)
+  const [dynamicText, setDynamicText] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/welcomePage')
+    api.get('/text/welcomePage')
       .then(result => {
         setDynamicText(result.data.value)
       })

@@ -8,14 +8,14 @@ export default function PrivateRoute(props) {
     let authToken = localStorage.getItem("authToken")
     if (authToken) {
     let decoded = JWT.decode(authToken)
-      if (decoded._id) {
+    console.log(decoded)
+      if (decoded && decoded._id) {
         return true
       } else {
         localStorage.removeItem("authToken")
         return false
       }
     } else {
-      localStorage.removeItem("authToken")
       return false
     }
   }

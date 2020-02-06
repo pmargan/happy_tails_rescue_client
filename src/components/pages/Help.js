@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Paragraph from '../helpers/Paragraph'
 
@@ -8,7 +8,7 @@ function Help() {
 
   useEffect(() => {
     async function getData() {
-      axios.get('http://localhost:3001/text/helpUs')
+      api.get('/text/helpUs')
         .then(result => {
           setDynamicText(result.data.value)
         })
