@@ -1,5 +1,5 @@
 import React, {useReducer, useEffect, useState} from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Form from '../helpers/Form'
 
@@ -44,7 +44,7 @@ export default function Admin(props) {
   )
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text')
+    api.get('/text')
       .then(result => {
         let text = result.data.reduce((acc, page) => {
           acc[page.id] = page.value
@@ -57,14 +57,14 @@ export default function Admin(props) {
   }, [])
 
   useEffect(() => {
-    axios.get('http://localhost:3001/vets')
+    api.get('/vets')
       .then(result => {
         setVets(result.data)
       })
   }, [])
 
   const saveDynamicText = (formData) => {
-    axios.put('http://localhost:3001/text', {
+    api.put('/text', {
       ...dynamicText
     })
   }
@@ -83,7 +83,7 @@ export default function Admin(props) {
 
   const saveNewVet = data => {
     console.log(data)
-    axios.post('http://localhost:3001/vets', data)
+    api.post('/vets', data)
   }
 
   return (

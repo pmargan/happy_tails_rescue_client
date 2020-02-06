@@ -1,4 +1,4 @@
-import axios from 'axios'
+import api from '../../API'
 import Form from '../helpers/Form'
 import React, { useState, useEffect } from 'react'
 import Paragraph from '../helpers/Paragraph'
@@ -8,9 +8,9 @@ import '../../stylesheets/pages/Adopt.scss'
 function AdoptForm() {
 
   const onFormSubmit = (data) => {
-    axios
+    api
       .post(
-        "http://localhost:3001/text/adoption",
+        "/text/adoption",
         {...data},
         console.log(data)
       )
@@ -20,7 +20,7 @@ function AdoptForm() {
   const [dynamicText, setDynamicText] = useState(null)
 
   useEffect(() => {
-    axios.get('http://localhost:3001/text/adopt')
+    api.get('/text/adopt')
       .then(result => {
         setDynamicText(result.data.value)
       })

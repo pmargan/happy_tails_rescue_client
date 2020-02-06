@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import api from '../../API'
 
 import Form from '../helpers/Form'
 
@@ -8,7 +8,7 @@ import '../../stylesheets/pages/AddAnimal.scss'
 export default function AddAnimal(props) {
 
   const submitForm = (data) => {
-    axios.post('http://localhost:3001/animals', data, {
+    api.post('/animals', data, {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
