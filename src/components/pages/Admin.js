@@ -145,7 +145,7 @@ export default function Admin(props) {
                     </tr>
                     <tr>
                       <td><label>Website Link: </label></td>
-                      <td><input type='text' name='link' /></td>
+                      <td><input type='text' name='src' /></td>
                     </tr>
                     <tr>
                       <td><label>Photo: </label></td>
